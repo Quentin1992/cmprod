@@ -1,0 +1,65 @@
+#articlesDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#articlesDisplay > div {
+    margin: 1em;
+}
+#articlesDisplay > div > div:first-child {
+    height: 125px;
+    width: 280px;
+    overflow: hidden;
+    margin: 3em auto;
+}
+#articlesDisplay > div > div:first-child > a {
+    display: block;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    height: 200%;
+}
+#articlesDisplay > div > div:first-child > a:hover {
+    position: relative;
+    transform: translateY(-50%);
+}
+#articlesDisplay > div > div:first-child > a > div {
+    height: 50%;
+}
+#articlesDisplay > div > div:first-child > a > div:first-child{
+    background-color: #FFFFFF;
+    text-align: center;
+}
+#articlesDisplay > div > div:first-child > a > div:last-child{
+    color: #ffffff;
+    background-color: #4D4D4D;
+    padding: 1em;
+}
+#articlesDisplay > div > div:first-child > a > div:last-child h3,
+#articlesDisplay > div > div:first-child > a > div:last-child h4,
+#articlesDisplay > div > div:first-child > a > div:last-child p {
+    margin: 0 0 1em 0;
+}
+#articlesDisplay > div > div:first-child > a > div:last-child h3 {
+    text-transform: uppercase;
+}
+#articlesDisplay > div > div:first-child > a > div:last-child h4 {
+    font-weight: 500;
+}
+#articlesDisplay > div > div:first-child > a > div:first-child img {
+    height: 105px;
+    width: 260px;
+    margin: 10px;
+    object-fit: contain;
+}
+#articlesDisplay > div > div:last-child > button {
+    box-shadow: 8px 8px 8px #000;
+    color: #ffffff;
+    background-color: #4d4d4d;
+    padding: 1em 4em;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin: 1em;
+    border: none;
+}

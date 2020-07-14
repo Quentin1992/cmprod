@@ -1,0 +1,60 @@
+header {
+    position: relative;
+    overflow: hidden;
+}
+header img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+header > div {
+    text-align: center;
+    padding: 9em;
+    color: #4d4d4d;
+}
+header > div > h1 {
+    font-size: 3em;
+    font-weight: 200;
+    position: relative;
+    display: inline-block;
+    color: #4d4d4d;
+    padding: 0.3em 0;
+    margin: 0.5em;
+}
+header > div > h1 span {
+    font-weight: 500;
+}
+header > div > h1::after {
+    content: '';
+    background-color: #4d4d4d;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    display: block;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+header > div > p {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+body > nav {
+    display: flex;
+}
+body > nav > button {
+    flex: 1;
+    color: #ffffff;
+    background-color: #4d4d4d;
+    padding: 1em 4em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+    border: none;
+    position: relative;
+    border-radius: 15px 15px 0px 0px;
+    outline: none;
+}

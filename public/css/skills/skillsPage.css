@@ -1,0 +1,171 @@
+header {
+    overflow: hidden;
+    position: relative;
+    height: calc(100vh - 100px);
+}
+header > div {
+    text-align: center;
+}
+header > div > h1 {
+    font-size: 3em;
+    font-weight: 200;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    padding: 0.3em 0;
+    margin: 1em;
+}
+header > div > h1 > span {
+    font-weight: 500;
+}
+header > div > h1::after {
+    content: '';
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    display: block;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+header > div > p {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #DEDEDE;
+    line-height: 2em;
+    margin: 0 0 3em 0;
+    padding: 0 5%;
+}
+header > img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+header > div > nav {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+header > div > nav > a {
+    width: 150px;
+    text-decoration: none;
+    margin: 1em;
+}
+header > div > nav > a > div {
+    background-color: rgba(111,111,111,0.5);
+    border-radius: 50%;
+    border: solid 2px #FFFFFF;
+    font-size: 3em;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+header > div > nav > a:hover > div {
+    background-color: rgba(111,111,111,0.8);
+}
+header > div > nav > a > div img{
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+}
+header > div > nav > a:hover > div img {
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+}
+header > div > nav > a > p {
+    color: #ffffff;
+}
+header > div > a, section > div > div > a {
+    display: block;
+    background-color: rgba(111,111,111,0.5);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 1.5em;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    bottom: 20px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+header > div > a:hover, section > div > div > a:hover {
+    background-color: rgba(111,111,111,0.8);
+}
+header > div > a > i {
+    margin-top: 25px;
+}
+
+section > div {
+    position: relative;
+    overflow: hidden;
+    height: calc(100vh - 200px);
+    padding: 100px;
+}
+section > div > img {
+    position: absolute;
+    width: 102%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(3px);
+}
+section > div > div {
+    text-align: center;
+    margin-top: 1em;
+}
+section > div > div > div {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-color: rgba(111,111,111,0.5);
+    border-radius: 50%;
+    border: solid 2px #FFFFFF;
+}
+section > div > div > div img {
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+}
+section > div > div > h2 {
+    font-size: 2.5em;
+    font-weight: 200;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    padding: 0.3em 0;
+    margin: 0.5em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),
+                -1px -1px 1px rgba(0, 0, 0, 0.5),
+                -1px 1px 1px rgba(0, 0, 0, 0.5),
+                1px -1px 1px rgba(0, 0, 0, 0.5);
+}
+section > div > div > h2::after {
+    content: '';
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    display: block;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section > div > div > p {
+    color: #dedede;
+    font-weight: 300;
+    line-height: 2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 0.5em;
+    width: 60%;
+    margin: 1em auto;
+    font-size: 1.2em;
+}
+section > div > div > a > i {
+    margin-top: 23px;
+}

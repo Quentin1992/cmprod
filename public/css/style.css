@@ -1,0 +1,190 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    font-family: Roboto;
+}
+
+header{
+    margin-top:100px;
+}
+
+svg{
+    stroke:#000000;
+    stroke-width: 3px;
+}
+
+a:focus {
+    outline: dashed 1px #4d4d4d;
+}
+
+/* navbar */
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    top:0;
+    z-index: 1;
+}
+#navbar > div:first-child a img{
+    height: 100%;
+}
+#navbar > div:last-child{
+    display: flex;
+    align-items: center;
+}
+#navbar > div:last-child nav{
+    margin: 0 2em 0 0;
+    display: flex;
+    height: 100%;
+}
+#navbar > div:last-child nav a {
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #095763;
+}
+#navbar > div:last-child nav a:hover, #navbar > div:last-child div a:hover {
+    background-color: rgba(9,87,99,0.1);
+}
+#navbar > div:last-child div {
+    margin: 0 1em 0 0;
+    display: flex;
+    height: 100%;
+}
+#navbar > div:last-child div a {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #095763;
+}
+
+/* footer */
+footer > div:first-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffd50b;
+}
+footer > div:first-child h3 {
+    font-size: 2.5em;
+    font-weight: 200;
+    position: relative;
+    display: inline-block;
+    color: #4d4d4d;
+    padding: 0.3em 0;
+    margin: 0.5em;
+}
+footer > div:first-child h3 span {
+    font-weight: 500;
+}
+footer > div:first-child h3::after {
+    content: '';
+    background-color: #4d4d4d;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    display: block;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+footer > div:first-child > a {
+    color: #4d4d4d;
+    background-color: #ffffff;
+    padding: 1em 4em;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+footer > div:first-child > a:hover {
+    color: #ffffff;
+    background-color: #4d4d4d;
+}
+footer > div:first-child iframe{
+    margin: 15px 0px;
+}
+
+footer > div:last-child{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+footer > div:last-child > div:first-child, footer > div > div:last-child{
+    flex: 1;
+}
+footer > div:last-child > div:first-child img{
+    height: 78px;
+}
+footer > div:last-child > div:first-child p{
+    margin: 0;
+    font-size: 0.9em;
+}
+footer > div:last-child div:nth-child(2) {
+    height: 100%;
+}
+footer > div:last-child div:nth-child(2) div {
+    height: 78px;
+}
+footer > div:last-child div:nth-child(2) div {
+    display: flex;
+}
+footer > div:last-child div:nth-child(2) p {
+    font-size: 0.9em;
+    margin: 0;
+    text-align: center;
+}
+footer > div:last-child div:nth-child(2) > div a {
+    padding: 0 1em;
+    color: #4d4d4d;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+footer > div:last-child div:nth-child(2) div a:hover,
+footer > div:last-child > div:last-child a:hover {
+    background-color: rgba(77,77,77,0.1);
+}
+footer > div:last-child > div:last-child {
+    height: 100%;
+}
+footer > div:last-child > div:last-child div {
+    display: flex;
+    height: 78px;
+    align-items: center;
+    justify-content: end;
+}
+footer > div:last-child > div:last-child div a {
+    padding: 0 0.5em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #4d4d4d;
+}
+footer > div:last-child > div:last-child div a:last-child {
+    margin-right: 1em;
+}
+footer > div:last-child > div:last-child p {
+    font-size: 0.9em;
+    margin: 0;
+    text-align: right;
+}

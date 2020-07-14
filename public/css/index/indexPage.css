@@ -1,0 +1,194 @@
+header{
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    z-index: 1;
+    background-color: #000000;
+}
+header video{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+header > button {
+    position: absolute;
+    z-index: 1;
+    bottom: 25%;
+    border-radius: 25px;
+    padding: 1em 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1em;
+    color: #4d4d4d;
+    background-color: #ffffff;
+    border: none;
+}
+header > button:hover {
+    border: solid 2px #4d4d4d;
+    transform: translate(-50%, 2px);
+}
+header > button > i {
+    margin-left: 1em;
+}
+header > div {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    color: rgba(77,77,77,0.5);
+    display: flex;
+    font-size: 2em;
+    width: 100%;
+}
+header > div > div {
+    width: 100%;
+}
+header > div > i {
+    margin: 0em 0.5em;
+}
+header > div > i:hover {
+    color: rgba(77,77,77,0.9);
+}
+header > div > div > svg {
+    stroke-width: 10px;
+    stroke: rgba(77,77,77,0.5);
+}
+
+#navbar {
+    position: sticky;
+}
+
+section h2 {
+    font-size: 3em;
+    font-weight: 200;
+    position: relative;
+    display: inline-block;
+    padding: 0.3em 0;
+    margin: 0.2em 0;
+}
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    display: block;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section h2 span {
+    font-weight: 500;
+}
+section p {
+    font-weight: 300;
+    line-height: 2em;
+}
+#whoAreWe, #ourSkills {
+    color: #ffffff;
+}
+#whoAreWe svg, #ourSkills svg {
+    stroke: #ffffff;
+}
+#whoAreWe a, #ourProjects a, #ourSkills a {
+    background-color: #ffffff;
+    padding: 1em 4em;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2em 0;
+}
+#whoAreWe {
+    display: flex;
+}
+#whoAreWe > div:first-child {
+    flex: 1;
+    background-color: #095763;
+    padding: 5em 4%;
+}
+#whoAreWe > div:last-child {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+#whoAreWe > div:last-child img {
+    width: 150%;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+}
+#whoAreWe h2::after {
+    background-color: #ffffff;
+}
+#whoAreWe p {
+    color: #AAF4FF;
+}
+#whoAreWe a {
+    color: #083D46;
+}
+#whoAreWe a:hover {
+    color: #ffffff;
+    background-color: #083D46;
+}
+
+#ourProjects{
+    position: relative;
+    overflow: hidden;
+    color: #4d4d4d;
+}
+#ourProjects img {
+    width: 100%;
+    position: absolute;
+    z-index:-1;
+}
+#ourProjects > div {
+    text-align: center;
+    padding: 5em 18%;
+}
+#ourProjects h2::after {
+    background-color: #4d4d4d;
+}
+#ourProjects a {
+    color: #493922;
+}
+#ourProjects a:hover {
+    color: #ffffff;
+    background-color: #493922;
+}
+
+#ourSkills {
+    display: flex;
+    background-color: #1B0B3C;
+}
+#ourSkills > div:first-child {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+#ourSkills h2::after {
+    background-color: #ffffff;
+}
+#ourSkills > div:first-child img {
+    width: 120%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#ourSkills > div:last-child {
+    flex: 1;
+    padding: 5em 4%;
+}
+#ourSkills a {
+    color: #4d4d4d;
+}
+#ourSkills a:hover {
+    color: #ffffff;
+    background-color: #4d4d4d;
+}
