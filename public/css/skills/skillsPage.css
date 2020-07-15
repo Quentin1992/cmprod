@@ -169,3 +169,7 @@ section > div > div > p {
 section > div > div > a > i {
     margin-top: 23px;
 }
+
+footer > div:last-child div:nth-child(2) p {
+    display: block;
+}

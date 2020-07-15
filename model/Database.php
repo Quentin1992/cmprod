@@ -2,10 +2,10 @@
 class Database{
 
   //properties
-  private $host = "localhost";
-  private $dbname = "chaudmirette";
-  private $user = "root";
-  private $pass = "";
+  private $host = "qbogfrldogqbog.mysql.db";
+  private $dbname = "qbogfrldogqbog";
+  private $user = "qbogfrldogqbog";
+  private $pass = "Kant1BKant1B";
 
     //method
 

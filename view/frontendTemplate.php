@@ -110,7 +110,7 @@
                     <a href="https://www.youtube.com/channel/UCTnIumn2sT4wIQL3qFRteRA/videos"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.facebook.com/chaud.mirette/"><i class="fab fa-facebook-f"></i></a>
                 </div>
-                <p>Site développé par <a href="https://qbog.fr/">Quentin Bogaert</a> sur un design de <a href="https://www.behance.net/eric-colin-webdesign">Eric Colin</a></p>
+                <p>Site développé par <a href="https://qbog.fr/">Quentin Bogaert</a>, design graphique par <a href="https://www.behance.net/eric-colin-webdesign">Eric Colin</a></p>
             </div>
         </div>
     </footer>

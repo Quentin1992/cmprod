@@ -16,7 +16,7 @@ $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
 $root =  $_SERVER['DOCUMENT_ROOT'].'/';
 
 // CONSTANT
-define('HOST', $host . "chaudmiretteprod/");
-define('ROOT', $root . "chaudmiretteprod/");
+define('HOST', $host);
+define('ROOT', $root);
 define('ASSETS', ROOT."assets/");
 define('VIEW', ROOT."view/");

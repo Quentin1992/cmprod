@@ -4,7 +4,7 @@ $page = "index";
  ?>
 
 <header id="container">
-    <video id="video" poster="public/images/frontend/showreel-light.PNG">
+    <video id="video" poster="public/images/frontend/showreel-light.png">
         <source src="public/videos/showreel_720.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la balise "video".
     </video>
@@ -48,11 +48,11 @@ $page = "index";
         <a href="index.php?action=contactView">Contactez-nous</a>
     </div>
     <div>
-        <img src="public/images/frontend/index/whoAreWe-light.PNG">
+        <img src="public/images/frontend/index/whoAreWe-light.png">
     </div>
 </section>
 <section id="ourProjects">
-    <img src="public/images/frontend/index/ourProjects-light.PNG">
+    <img src="public/images/frontend/index/ourProjects-light.png">
     <div>
         <h2>Nos <span>réalisations</span></h2>
         <p>Réalisations audiovisuelles publicitaires, événementielles, promotionnelles, artistiques, atypique, dynamique, moderne ?<br />
@@ -69,7 +69,7 @@ $page = "index";
 </section>
 <section id="ourSkills">
     <div>
-        <img src="public/images/frontend/index/ourSkills-light.PNG">
+        <img src="public/images/frontend/index/ourSkills-light.png">
     </div>
     <div>
         <h2>Nos <span>compétences</span></h2>

@@ -4,7 +4,7 @@ $page = "contact";
  ?>
 
 <header>
-    <img src="public/images/frontend/contact/contact-light.PNG">
+    <img src="public/images/frontend/contact/contact-light.png">
     <div>
         <h1>Contact</h1>
         <p>Un devis, une question, une demande, une suggestion, un compliment ?</p>

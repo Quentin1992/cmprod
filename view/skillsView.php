@@ -52,7 +52,7 @@ $page = "skills";
     </header>
     <section>
         <div id="design">
-            <img src="public/images/frontend/skills/design.PNG">
+            <img src="public/images/frontend/skills/design.png">
             <div>
                 <div>
                     <img src="public/images/frontend/skills/icons/design.svg">
@@ -64,7 +64,7 @@ $page = "skills";
             </div>
         </div>
         <div id="preprod">
-            <img src="public/images/frontend/skills/preprod-light.PNG">
+            <img src="public/images/frontend/skills/preprod-light.png">
             <div>
                 <div>
                     <img src="public/images/frontend/skills/icons/preprod.svg">
@@ -76,7 +76,7 @@ $page = "skills";
             </div>
         </div>
         <div id="shooting">
-            <img src="public/images/frontend/skills/shooting-light.PNG">
+            <img src="public/images/frontend/skills/shooting-light.png">
             <div>
                 <div>
                     <img src="public/images/frontend/skills/icons/shooting.svg">
@@ -88,7 +88,7 @@ $page = "skills";
             </div>
         </div>
         <div id="montage">
-            <img src="public/images/frontend/skills/montage-light.PNG">
+            <img src="public/images/frontend/skills/montage-light.png">
             <div>
                 <div>
                     <img src="public/images/frontend/skills/icons/montage.svg">
@@ -100,7 +100,7 @@ $page = "skills";
             </div>
         </div>
         <div id="motion">
-            <img src="public/images/frontend/skills/motion-light.PNG">
+            <img src="public/images/frontend/skills/motion-light.png">
             <div>
                 <div>
                     <img src="public/images/frontend/skills/icons/motion.svg">

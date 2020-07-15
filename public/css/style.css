@@ -149,6 +149,7 @@ footer > div:last-child div:nth-child(2) p {
     font-size: 0.9em;
     margin: 0;
     text-align: center;
+    display: none;
 }
 footer > div:last-child div:nth-child(2) > div a {
     padding: 0 1em;
