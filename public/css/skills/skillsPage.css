@@ -170,6 +170,6 @@ section > div > div > a > i {
     margin-top: 23px;
 }
 
-footer > div:last-child div:nth-child(2) p {
+footer > div:last-child > p:nth-child(3) {
     display: block;
 }

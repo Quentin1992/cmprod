@@ -8,6 +8,7 @@
     font-size: 3em;
     color: #555555;
     border: none;
+    outline: none;
 }
 #reviewsDisplay > div:first-child > button:hover {
     color: #000000;
@@ -39,7 +40,8 @@
     overflow: hidden;
     justify-content: center;
 }
-#reviewsDisplay > div:first-child > a > div:first-child > div > img {
+/* svg exception for chrome : had to remove it to prevent image crop */
+#reviewsDisplay > div:first-child > a > div:first-child > div > img:not([src$='.svg']) {
     object-fit: cover;
 }
 #reviewsDisplay > div:first-child > a > div:first-child > div > img[src$='.svg'] {

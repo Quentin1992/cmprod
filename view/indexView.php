@@ -13,6 +13,13 @@ $page = "index";
         <div>
             <svg width="100%" height="10px"><line id="seek-bar" x1="0" y1="0" x2="0%" y2="0" /></svg>
         </div>
+        <div id="video-quality">
+            <div>
+                <p id="1080p">1080p</p>
+                <p id="720p">720p</p>
+            </div>
+            <i class="fas fa-cog"></i>
+        </div>
         <i id="full-screen" class="fas fa-expand"></i>
     </div>
 </header>

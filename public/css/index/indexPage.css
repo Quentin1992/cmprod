@@ -44,13 +44,29 @@ header > div {
     font-size: 2em;
     width: 100%;
 }
-header > div > div {
+header > div > div:first-child {
     width: 100%;
 }
-header > div > i {
-    margin: 0em 0.5em;
+header > div #video-quality > div {
+    position: absolute;
+    transform: translate(-1em, -100%);
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
 }
-header > div > i:hover {
+header > div #video-quality:hover > div {
+    display: block;
+}
+header > div #video-quality > div > p {
+    margin: 0;
+    padding: 0.2em;
+    font-size: 0.8em;
+    cursor: default;
+}
+header > div i {
+    margin: 0 0.5em 0.5em 0;
+}
+header > div i:hover {
     color: rgba(77,77,77,0.9);
 }
 header > div > div > svg {
@@ -118,7 +134,7 @@ section p {
     overflow: hidden;
 }
 #whoAreWe > div:last-child img {
-    width: 150%;
+    width: 166%;
     position: absolute;
     top: 50%;
     right: 0%;
@@ -176,7 +192,6 @@ section p {
     background-color: #ffffff;
 }
 #ourSkills > div:first-child img {
-    width: 120%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

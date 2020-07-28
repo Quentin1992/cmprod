@@ -1,13 +1,12 @@
 header {
     position: relative;
-    overflow: hidden;
 }
 header img {
     width: 100%;
     position: absolute;
     z-index: -1;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-45%);
 }
 header > div {
     text-align: center;

@@ -4,7 +4,7 @@ $page = "projects";
  ?>
 
 <header>
-    <img src="public/images/frontend/projects/projects.png" />
+    <img src="public/images/frontend/projects/projects-light.png" />
     <div>
         <h1>Nos <span>réalisations vidéos &amp; motion design</span></h1>
         <p>Ce qui vous permettra d'y voir plus clair, et de nous faire confiance !</p>

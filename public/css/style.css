@@ -31,6 +31,9 @@ a:focus {
     top:0;
     z-index: 1;
 }
+#navbar > div:first-child {
+    width: 25%;
+}
 #navbar > div:first-child a img{
     height: 100%;
 }
@@ -71,6 +74,9 @@ a:focus {
 }
 
 /* footer */
+footer {
+    background-color: #ffffff;
+}
 footer > div:first-child{
     display: flex;
     flex-direction: column;
@@ -120,17 +126,68 @@ footer > div:first-child iframe{
     margin: 15px 0px;
 }
 
-footer > div:last-child{
-    height: 100px;
+footer > div:nth-child(2){
+    display: flex;
+}
+footer > div:nth-child(2) > div {
+    flex: 1;
+    height: 80px;
+    display: flex;
+}
+footer > div:nth-child(2) > div > a {
+    color: #4d4d4d;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    text-decoration: none;
 }
+footer > div:nth-child(2) > div > a:hover {
+    background-color: rgba(77,77,77,0.15);
+}
+footer > div:nth-child(2) > div:first-child > img {
+    height: 80px;
+}
+footer > div:nth-child(2) > div:nth-child(2) > a {
+    padding: 0 1em;
+    text-transform: uppercase;
+}
+footer > div:nth-child(2) > div:nth-child(2) {
+    justify-content: center;
+}
+footer > div:nth-child(2) > div:last-child {
+    justify-content: flex-end;
+    margin: 0 1em 0 0;
+}
+footer > div:nth-child(2) > div:last-child > a {
+    padding: 0 0.5em;
+}
+
+footer > div:last-child {
+    display: flex;
+    font-size: 0.9em;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer > div:last-child > p {
+    margin: 0 0.1em 0.1em 0.1em;
+    white-space: nowrap;
+}
+footer > div:last-child > p:nth-child(3) {
+    display: none;
+}
+
+/*
 footer > div:last-child > div:first-child, footer > div > div:last-child{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-footer > div:last-child > div:first-child img{
-    height: 78px;
+footer > div:last-child > div:first-child > div {
+    height: 100%;
+}
+footer > div:last-child > div:first-child > div > img{
+    height: 100%;
 }
 footer > div:last-child > div:first-child p{
     margin: 0;
@@ -152,11 +209,7 @@ footer > div:last-child div:nth-child(2) p {
     display: none;
 }
 footer > div:last-child div:nth-child(2) > div a {
-    padding: 0 1em;
-    color: #4d4d4d;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
+
     display: flex;
     align-items: center;
 }
@@ -168,10 +221,10 @@ footer > div:last-child > div:last-child {
     height: 100%;
 }
 footer > div:last-child > div:last-child div {
+    flex: 1;
     display: flex;
-    height: 78px;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
 footer > div:last-child > div:last-child div a {
     padding: 0 0.5em;
@@ -188,4 +241,4 @@ footer > div:last-child > div:last-child p {
     font-size: 0.9em;
     margin: 0;
     text-align: right;
-}
+} */
