@@ -1,0 +1,23 @@
+#navbar > div:last-child {
+    flex-direction: row-reverse;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+#navbar > div:last-child > nav {
+    margin: 0;
+    display: block;
+}
+#navbar > div:last-child > nav > a {
+    display: none;
+    padding: 1em;
+}
+#navbar > div:last-child > nav > a:last-child {
+    display: flex;
+    height: 100px;
+    padding: 0 1em;
+}
+#navbar > div:last-child > div {
+    font-size: 1.3em;
+}

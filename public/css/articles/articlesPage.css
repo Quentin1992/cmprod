@@ -5,7 +5,7 @@ header {
 header > img {
     position: fixed;
     z-index: -1;
-    width: 101%;
+    width: 250%;
     top: -150px;
     left: -5px;
     filter: blur(3px);
@@ -23,6 +23,7 @@ header > div > h1 {
     color: #ffffff;
     padding: 0.3em 0;
     margin: 0.5em;
+    text-align: center;
 }
 header > div > h1::after {
     content: '';
@@ -39,4 +40,5 @@ header > div > p {
     font-size: 1.5em;
     font-weight: 300;
     margin: 0.5em 0 3em 0;
+    text-align: center;
 }

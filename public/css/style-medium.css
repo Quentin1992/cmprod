@@ -3,4 +3,9 @@ footer > div:last-child {
 }
 footer > div:last-child > p {
     margin: 0 3em 0.1em 3em;
+    flex: auto;
+}
+footer > div:last-child > p:first-child,
+footer > div:last-child > p:last-child {
+    text-align: center;
 }

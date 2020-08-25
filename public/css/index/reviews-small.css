@@ -1,0 +1,3 @@
+#reviewsDisplay > div:first-child > button {
+    flex: 0.5;
+}

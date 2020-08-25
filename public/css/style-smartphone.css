@@ -1,0 +1,35 @@
+#navbar {
+    height: 80px;
+}
+#navbar > div:last-child > nav > a:last-child {
+    height: 80px;
+}
+/* #navbar > div:last-child nav a {
+    padding: 0 1em;
+} */
+
+header {
+    margin-top: 80px;
+}
+
+footer > div:first-child > h3 {
+    font-size: 1.9em;
+}
+footer > div:nth-child(2) {
+    flex-direction: column-reverse;
+}
+footer > div:nth-child(2) > div {
+    justify-content: center;
+}
+footer > div:nth-child(2) > div:last-child {
+    margin: 0;
+    justify-content: center;
+}
+footer > div:nth-child(2) > div:last-child > a {
+    padding: 0.5em;
+}
+footer > div:last-child > p {
+    margin: 0;
+    white-space: normal;
+    text-align: center;
+}

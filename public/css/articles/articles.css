@@ -32,7 +32,6 @@
 #articlesDisplay > div > div:first-child > a > div:last-child{
     color: #ffffff;
     background-color: #4D4D4D;
-    padding: 1em;
 }
 #articlesDisplay > div > div:first-child > a > div:last-child h3,
 #articlesDisplay > div > div:first-child > a > div:last-child h4,
@@ -41,6 +40,11 @@
 }
 #articlesDisplay > div > div:first-child > a > div:last-child h3 {
     text-transform: uppercase;
+    padding: 1em 0 0 1em;
+}
+#articlesDisplay > div > div:first-child > a > div:last-child h4,
+#articlesDisplay > div > div:first-child > a > div:last-child p {
+    padding: 0 0 0 1em;
 }
 #articlesDisplay > div > div:first-child > a > div:last-child h4 {
     font-weight: 500;

@@ -35,6 +35,7 @@ $page = "index";
             <a href="index.php?action=skillsView">Compétences</a>
             <a href="index.php?action=articlesView">On parle de nous</a>
             <a href="index.php?action=contactView">Contact</a>
+            <a href="#"><i class="fas fa-bars"></i></a>
         </nav>
         <div>
             <a href="https://www.instagram.com/chaudmirette_prod/"><i class="fab fa-instagram"></i></a>

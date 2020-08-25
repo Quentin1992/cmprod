@@ -1,0 +1,6 @@
+#projectsDisplay > div:first-child {
+    height: 670px;
+}
+#projectsDisplay > div {
+    height: 335px;
+}

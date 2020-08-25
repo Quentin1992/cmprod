@@ -1,0 +1,12 @@
+#articlesDisplay {
+    margin-bottom: 5em;
+}
+
+#articlesDisplay > div > div:first-child {
+    overflow: visible;
+    margin: 4em auto;
+}
+
+#articlesDisplay > div > div:first-child > a:hover {
+    transform: unset;
+}

@@ -58,6 +58,10 @@ a:focus {
 #navbar > div:last-child nav a:hover, #navbar > div:last-child div a:hover {
     background-color: rgba(9,87,99,0.1);
 }
+#navbar > div:last-child > nav > a:last-child {
+    font-size: 2em;
+    display: none;
+}
 #navbar > div:last-child div {
     margin: 0 1em 0 0;
     display: flex;
@@ -165,80 +169,20 @@ footer > div:nth-child(2) > div:last-child > a {
 footer > div:last-child {
     display: flex;
     font-size: 0.9em;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 footer > div:last-child > p {
     margin: 0 0.1em 0.1em 0.1em;
     white-space: nowrap;
+    flex: 1;
+    text-align: center;
+}
+footer > div:last-child > p:first-child {
+    text-align: left;
+}
+footer > div:last-child > p:last-child {
+    text-align: right;
 }
 footer > div:last-child > p:nth-child(3) {
     display: none;
 }
-
-/*
-footer > div:last-child > div:first-child, footer > div > div:last-child{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-footer > div:last-child > div:first-child > div {
-    height: 100%;
-}
-footer > div:last-child > div:first-child > div > img{
-    height: 100%;
-}
-footer > div:last-child > div:first-child p{
-    margin: 0;
-    font-size: 0.9em;
-}
-footer > div:last-child div:nth-child(2) {
-    height: 100%;
-}
-footer > div:last-child div:nth-child(2) div {
-    height: 78px;
-}
-footer > div:last-child div:nth-child(2) div {
-    display: flex;
-}
-footer > div:last-child div:nth-child(2) p {
-    font-size: 0.9em;
-    margin: 0;
-    text-align: center;
-    display: none;
-}
-footer > div:last-child div:nth-child(2) > div a {
-
-    display: flex;
-    align-items: center;
-}
-footer > div:last-child div:nth-child(2) div a:hover,
-footer > div:last-child > div:last-child a:hover {
-    background-color: rgba(77,77,77,0.1);
-}
-footer > div:last-child > div:last-child {
-    height: 100%;
-}
-footer > div:last-child > div:last-child div {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-footer > div:last-child > div:last-child div a {
-    padding: 0 0.5em;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #4d4d4d;
-}
-footer > div:last-child > div:last-child div a:last-child {
-    margin-right: 1em;
-}
-footer > div:last-child > div:last-child p {
-    font-size: 0.9em;
-    margin: 0;
-    text-align: right;
-} */

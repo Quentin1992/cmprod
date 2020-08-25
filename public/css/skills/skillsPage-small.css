@@ -1,0 +1,33 @@
+/* header > img {
+    width: 180%;
+}
+
+section > div > img {
+    width: 205%;
+} */
+
+header {
+    height: auto;
+    padding-bottom: 100px;
+}
+header > img {
+    width: auto;
+    height: 110%;
+}
+header > div > nav {
+    flex-wrap: wrap;
+}
+section > div {
+    height: auto;
+}
+section > div:nth-child(1) > img,
+section > div:nth-child(3) > img,
+section > div:nth-child(4) > img,
+section > div:nth-child(6) > img {
+    width: 125%;
+}
+section > div:nth-child(2) > img,
+section > div:nth-child(5) > img {
+    width: auto;
+    height: 120%;
+}

@@ -1,0 +1,6 @@
+header > div {
+    padding: 0 1em 1em 1em;
+}
+section > div > form {
+    text-align: center;
+}

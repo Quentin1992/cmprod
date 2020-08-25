@@ -1,0 +1,7 @@
+#reviewsDisplay > div:first-child {
+    height: auto;
+    padding: 2em 0;
+}
+#reviewsDisplay > div:first-child > a {
+    flex-direction: column;
+}

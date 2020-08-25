@@ -1,0 +1,21 @@
+header > div > h1 {
+    margin: 0.3em;
+}
+header > div > p {
+    font-size: 1.3em;
+    margin: 0;
+}
+
+section > div {
+    padding: 100px 0;
+}
+section > div > img {
+    width: 110%;
+}
+section > div > div > h2 {
+    margin: 0.3em;
+}
+section > div > div > p {
+    width: 95%;
+    margin: 0.3em auto;
+}

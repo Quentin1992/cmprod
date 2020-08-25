@@ -10,25 +10,35 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <!-- global css stylesheets -->
+    <!-- header and footer css stylesheets -->
     <link rel="stylesheet" href="public/css/style.css" />
-    <link rel="stylesheet" media="screen and (max-width: 426px)" href="public/css/style-smartphone.css">
-    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/style-tablet.css">
-    <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/style-small.css">
     <link rel="stylesheet" media="screen and (max-width: 1440px)" href="public/css/style-medium.css">
+    <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/style-small.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/style-tablet.css">
+    <link rel="stylesheet" media="screen and (max-width: 426px)" href="public/css/style-smartphone.css">
 
-    <!-- specific pages stylesheets -->
+    <!-- pages stylesheets -->
     <link rel="stylesheet" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page.css">
+    <link rel="stylesheet" media="screen and (max-width: 1440px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-medium.css">
+    <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-small.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-tablet.css">
+    <link rel="stylesheet" media="screen and (max-width: 426px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-smartphone.css">
 
     <!-- specific elements stylesheets -->
     <?php if($page == ("index" || "backend")){ ?>
     <link rel="stylesheet" href="public/css/index/reviews.css" />
+    <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/index/reviews-small.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/index/reviews-tablet.css">
     <?php }
     if($page == ("articles" || "backend")){ ?>
     <link rel="stylesheet" href="public/css/articles/articles.css" />
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/articles/articles-tablet.css">
     <?php }
     if($page == ("projects" || "backend")){ ?>
     <link rel="stylesheet" href="public/css/projects/projects.css" />
+    <link rel="stylesheet" media="screen and (max-width: 1440px)" href="public/css/projects/projects-medium.css">
+    <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/projects/projects-small.css">
+    <link rel="stylesheet" media="screen and (max-width: 426px)" href="public/css/projects/projects-smartphone.css">
     <?php } ?>
 
     <!-- javascript scripts -->
@@ -73,6 +83,7 @@
                 <a href="index.php?action=skillsView">Compétences</a>
                 <a href="index.php?action=articlesView">On parle de nous</a>
                 <a href="index.php?action=contactView">Contact</a>
+                <a href="#"><i class="fas fa-bars"></i></a>
             </nav>
             <div>
                 <a href="https://www.instagram.com/chaudmirette_prod/"><i class="fab fa-instagram"></i></a>

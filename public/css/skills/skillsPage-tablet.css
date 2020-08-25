@@ -1,0 +1,12 @@
+section > div {
+    height: auto;
+    min-height: calc(100vh - 200px);
+}
+
+section > div:nth-child(1) > img,
+section > div:nth-child(3) > img,
+section > div:nth-child(4) > img,
+section > div:nth-child(6) > img {
+    width: auto;
+    height: 125%;
+}

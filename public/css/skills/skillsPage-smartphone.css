@@ -1,0 +1,8 @@
+header > div > nav > a {
+    width: 120px;
+    margin: 0.5em;
+}
+
+section > div {
+    padding: 80px 0 100px 0;
+}

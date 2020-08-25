@@ -1,0 +1,10 @@
+section {
+    flex-direction: column;
+}
+section > div {
+    padding: 3em;
+}
+section > iframe {
+    padding: 0;
+    height: 400px;
+}

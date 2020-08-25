@@ -1,0 +1,11 @@
+#whoAreWe > div:last-child img {
+    width: 282%;
+}
+
+#ourProjects img {
+    width: 131%;
+}
+
+#ourSkills > div:first-child img {
+    width: 321%;
+}

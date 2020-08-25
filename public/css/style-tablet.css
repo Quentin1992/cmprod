@@ -1,0 +1,11 @@
+#navbar > div:last-child > div {
+    display: none;
+}
+
+footer > div:nth-child(2) > div:nth-child(2) {
+    display: none;
+}
+
+footer > div:nth-child(2) > div:last-child > a {
+    font-size: 1.5em;
+}

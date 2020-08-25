@@ -1,0 +1,52 @@
+section h2 {
+    font-size: 2.8em;
+}
+
+header video {
+    width: auto;
+    height: 100%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#whoAreWe {
+    flex-direction: column-reverse;
+}
+#whoAreWe > div:first-child {
+    position: relative;
+    padding: 1em 12%;
+    text-align: center;
+}
+#whoAreWe > div:last-child {
+    flex: none;
+    height: 300px;
+}
+#whoAreWe h2 {
+    position: absolute;
+    top: -100px;
+    width: 100%;
+    transform: translateX(-50%);
+}
+
+#ourProjects > img {
+    width: 231%;
+}
+#ourProjects > div {
+    padding: 1em 15%;
+}
+
+#ourSkills {
+    flex-direction: column;
+}
+#ourSkills > div:first-child {
+    flex: none;
+    height: 400px;
+}
+#ourSkills > div:first-child img {
+    width: 127%;
+}
+#ourSkills > div:last-child {
+    text-align: center;
+    padding: 1em 12%;
+}
