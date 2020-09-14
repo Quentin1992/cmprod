@@ -16,6 +16,4 @@ $page = "projects";
     <button><h3>Vidéo</h3></button>
     <button><h3>Motion design</h3></button>
 </nav>
-<section id="projectsDisplay">
-
-</section>
+<section id="projectsDisplay"></section>

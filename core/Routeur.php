@@ -1,4 +1,3 @@
-
 <?php
 class Routeur{
 
@@ -36,8 +35,11 @@ class Routeur{
                 case 'addProject':
                     $this->projectsController->addProject($_POST['title'], $_POST['description'], $_FILES['imgLocation'], $_POST['url'], $_POST['category']);
                     break;
+                case 'countProjects':
+                    echo $this->projectsController->countProjects($_POST['category']);
+                    break;
                 case 'getProjects':
-                    echo $this->projectsController->getProjects($_POST['category']);
+                    echo $this->projectsController->getProjects($_POST['category'], $_POST['pageNumber'], $_POST['projectsPerPage']);
                     break;
                 case 'updateProject':
                     $this->projectsController->updateProject($_POST['id'], $_POST['title'], $_POST['description'], $_FILES['imgLocation'], $_POST['url'], $_POST['category']);

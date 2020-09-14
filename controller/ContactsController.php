@@ -1,5 +1,4 @@
 <?php
-
 class ContactsController extends ContactsManager{
 
     public function sendEmail($name, $phoneNumber, $email, $message, $consent){

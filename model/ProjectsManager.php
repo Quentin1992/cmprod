@@ -18,9 +18,16 @@ class ProjectsManager extends Database{
         $query->execute();
     }
 
-    public function goGetProjects($where){
+    public function goCountProjects($where){
+        $sql = 'SELECT COUNT(*) AS number_of_projects FROM projects' . $where;
+        $query = $this->db->query($sql);
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+        return $data['number_of_projects'];
+    }
+
+    public function goGetProjects($where, $limit){
         $projects = [];
-        $sql = 'SELECT * FROM projects' . $where;
+        $sql = 'SELECT * FROM projects' . $where . $limit;
         $query = $this->db->query($sql);
         while($data = $query->fetch(PDO::FETCH_ASSOC)){
             $projects[] = new Project($data['project_id'], $data['project_title'], $data['project_description'], $data['project_img_location'], $data['project_url'], $data['project_category']);

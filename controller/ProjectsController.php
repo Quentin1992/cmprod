@@ -12,13 +12,28 @@ class ProjectsController extends ProjectsManager{
         $this->sendProject($project);
     }
 
-    public function getProjects($category){
+    public function countProjects($category){
         if($category == "video")
             $where = " WHERE project_category = 'video'";
         elseif($category == "motionDesign")
             $where = " WHERE project_category = 'motionDesign'";
         else $where = "";
-        $projects = $this->goGetProjects($where);
+        return $this->goCountProjects($where);
+    }
+
+    public function getProjects($category, $pageNumber, $projectsPerPage){
+        if($category == "video")
+            $where = " WHERE project_category = 'video'";
+        elseif($category == "motionDesign")
+            $where = " WHERE project_category = 'motionDesign'";
+        else $where = "";
+        if($pageNumber != undefined){
+            if($pageNumber > 1)
+                $offset = " OFFSET " . $projectsPerPage * ($pageNumber - 1);
+            else $offset = "";
+            $limit = " LIMIT " . $projectsPerPage . $offset;
+        } else $limit = " LIMIT " . $projectsPerPage;
+        $projects = $this->goGetProjects($where, $limit);
         $projectsData = [];
         foreach ($projects as $project){
             $projectsData[] = $projectData = array(

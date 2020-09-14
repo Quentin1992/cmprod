@@ -113,7 +113,6 @@ class ReviewsHandler {
     }
 
     initSlider(reviews){
-        console.log("init");
         reviewsHandler.currentReview = 0;
         reviewsHandler.displayReview(reviews[reviewsHandler.currentReview]);
         $("#reviewsDisplay > div:first-child button").first().off("click");

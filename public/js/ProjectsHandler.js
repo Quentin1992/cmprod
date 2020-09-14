@@ -3,7 +3,10 @@ class ProjectsHandler {
     constructor(side, workLocation, displayLocation){
         this.workLocation = workLocation;
         this.displayLocation = displayLocation;
-        this.side=side; //frontend or backend ?
+        this.side = side; //frontend or backend ?
+        this.category = "all";
+        this.projectsPerPage = 10;
+        this.currentPage = 1;
     }
 
     //CREATE
@@ -86,19 +89,31 @@ class ProjectsHandler {
 
     //READ
 
-    getProjects(category){
+    countProjects(callback){
         let query = new FormData();
-        query.append("action", "getProjects");
-        query.append("category", category);
+        query.append("action", "countProjects");
+        query.append("category", projectsHandler.category);
         ajaxPost("index.php", query, function(response){
-            console.log(response);
-            let projects = JSON.parse(response);
-            $(projectsHandler.displayLocation).html("");
-            projectsHandler.displayProjects(projects);
+            callback(response);
         });
     }
 
-    displayProjects(projects){
+    getProjects(pageNumber, callback){
+        let query = new FormData();
+        query.append("action", "getProjects");
+        query.append("category", projectsHandler.category);
+        query.append("pageNumber", pageNumber);
+        query.append("projectsPerPage", projectsHandler.projectsPerPage);
+        ajaxPost("index.php", query, function(response){
+            let projects = JSON.parse(response);
+            $(projectsHandler.displayLocation).html("");
+            projectsHandler.countProjects(function(numberOfProjects){
+                projectsHandler.displayProjects(projects, numberOfProjects);
+            });
+        });
+    }
+
+    displayProjects(projects, numberOfProjects){
         if(projects[0] != undefined){
             projects.forEach(function(projectData){
                 let projectLink = $("<a>").attr("href", projectData.url);
@@ -125,6 +140,37 @@ class ProjectsHandler {
                     $(projectsHandler.displayLocation).append(adminDiv);
                 }
             });
+            if(numberOfProjects > projectsHandler.projectsPerPage){
+                let numberOfPages = Math.ceil(numberOfProjects / projectsHandler.projectsPerPage);
+                let projectsNav = $("<nav>", {id:"projectsNav"});
+                projectsNav.append($("<button>").html("<").on("click", function(){
+                    if(projectsHandler.currentPage > 1){
+                        projectsHandler.currentPage --;
+                        projectsHandler.getProjects(projectsHandler.currentPage);
+                    }
+                }));
+                for(let i = 1; i <= (numberOfPages); i++){
+                    projectsNav.append($("<span>").html(i).on("click", function(){
+                        if(i != projectsHandler.currentPage){
+                            projectsHandler.getProjects(i);
+                            projectsHandler.currentPage = i;
+                        }
+                    }));
+                }
+                projectsNav.append($("<button>").html(">").on("click", function(){
+                    if(projectsHandler.currentPage < numberOfPages){
+                        projectsHandler.currentPage ++;
+                        projectsHandler.getProjects(projectsHandler.currentPage);
+                    }
+                }));
+                $("#projectsNav").remove();
+                projectsNav.insertAfter($(projectsHandler.displayLocation));
+                $("#projectsNav > span").css("color", "#4d4d4d");
+                $("#projectsNav > span").css("font-weight", "600");
+                $("#projectsNav > span:nth-child(" + (projectsHandler.currentPage + 1) + ")").css("color", "rgb(17,17,17)");
+                $("#projectsNav > span:nth-child(" + (projectsHandler.currentPage + 1) + ")").css("font-weight", "900");
+            }
+            else $("#projectsNav").remove();
         }
         else $(projectsHandler.displayLocation).append($("<p>").html("Aucun projet pour le moment."));
     }

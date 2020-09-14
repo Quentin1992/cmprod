@@ -9,7 +9,11 @@ $page = "backend";
 </header>
 
 <?php
-if(isset($_POST['password']) && password_verify($_POST['password'], "$2y$10$6nFFUwa7z172LBLT597/cOd0UHrzUCm31xYQ4pIuGj/PiZ6RuA5TC")){
+if((isset($_SESSION['password']) && password_verify($_SESSION['password'], "$2y$10$6nFFUwa7z172LBLT597/cOd0UHrzUCm31xYQ4pIuGj/PiZ6RuA5TC"))
+|| (isset($_POST['password']) && password_verify($_POST['password'], "$2y$10$6nFFUwa7z172LBLT597/cOd0UHrzUCm31xYQ4pIuGj/PiZ6RuA5TC"))){
+    if(isset($_POST['password'])){
+        $_SESSION['password'] = $_POST['password'];
+    }
 ?>
 <section>
     <h2>Ajouter ou modifier une publication :</h2>

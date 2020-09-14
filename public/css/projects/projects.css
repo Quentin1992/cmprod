@@ -1,6 +1,7 @@
 #projectsDisplay {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: #ffffff;
 }
 #projectsDisplay > div {
     height: 435px;
@@ -78,4 +79,19 @@
     font-size: 0.8em;
     margin: 1em;
     border: none;
+}
+
+#projectsNav {
+    font-size: 1.5em;
+    font-weight: 900;
+}
+#projectsNav > span {
+    padding: 1em;
+    background-color: #ffffff;
+}
+#projectsNav > button:first-child {
+    border-radius: 0 0 0 15px;
+}
+#projectsNav > button:last-child {
+    border-radius: 0 0 15px 0;
 }
