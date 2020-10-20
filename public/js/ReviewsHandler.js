@@ -24,8 +24,8 @@ class ReviewsHandler {
         reviewForm.append($("<input>", {type:"text", name:"author", required:true}));
         reviewForm.append($("<label>", {for:"content", html:"Avis : "}));
         reviewForm.append($("<textarea>", {name:"content", required:true}));
-        reviewForm.append($("<label>", {for:"imgLocation", html:"Image : "}));
-        reviewForm.append($("<input>", {type:"file", name:"imgLocation", required:true}).on("change", function(e){
+        reviewForm.append($("<label>", {for:"image", html:"Image : "}));
+        reviewForm.append($("<input>", {type:"file", name:"image", required:true}).on("change", function(e){
             $("#formImgDiv").remove();
             let image = $("<img>").attr("src", window.URL.createObjectURL(e.target.files[0]));
             $("<div>", {
@@ -53,21 +53,21 @@ class ReviewsHandler {
         }
         reviewForm.on("submit", function(e){
             if(reviewData == undefined){
-                reviewsHandler.addReview(e.target.author.value, e.target.content.value, e.target.imgLocation.files[0]);
+                reviewsHandler.addReview(e.target.author.value, e.target.content.value, e.target.image.files[0]);
             } else if(reviewData != undefined){
-                reviewsHandler.updateReview(reviewData.id, e.target.author.value, e.target.content.value, e.target.imgLocation.files[0]);
+                reviewsHandler.updateReview(reviewData.id, e.target.author.value, e.target.content.value, e.target.image.files[0]);
             }
             e.preventDefault();
         });
         $(reviewsHandler.workLocation).append(reviewForm);
     }
 
-    addReview(author, content, imgLocation){
+    addReview(author, content, imageFile){
         var query = new FormData();
         query.append("action", "addReview");
         query.append("author", author);
         query.append("content", content);
-        query.append("imgLocation", imgLocation);
+        query.append("imageFile", imageFile);
         ajaxPost("index.php", query, function(response){
             $(reviewsHandler.workLocation).html("").append($("<div>").html("L'avis de " + author + " a été ajouté."));
             reviewsHandler.displayNewReviewButton();
@@ -91,7 +91,7 @@ class ReviewsHandler {
 
     displayReview(reviewData){
         $(reviewsHandler.displayLocation).html("");
-        let imgDiv = $("<div>").append($("<div>").append($("<img>").attr("src", reviewData.imgLocation)));
+        let imgDiv = $("<div>").append($("<div>").append($("<img>").attr({src:reviewData.imageFile, alt:"logo "+reviewData.author})));
         $(reviewsHandler.displayLocation).append(imgDiv);
         let textDiv = $("<div>");
         textDiv.append($("<p>").html(reviewData.content));
@@ -126,7 +126,6 @@ class ReviewsHandler {
     };
 
     nextSlide(reviews){
-        console.log("next");
         reviewsHandler.currentReview++;
         if (reviewsHandler.currentReview === reviewsHandler.numberOfReviews)
             reviewsHandler.currentReview = 0;
@@ -134,7 +133,6 @@ class ReviewsHandler {
     };
 
     previousSlide(reviews){
-        console.log("prev");
         reviewsHandler.currentReview--;
         if (reviewsHandler.currentReview === -1)
             reviewsHandler.currentReview = reviewsHandler.numberOfReviews - 1;
@@ -143,13 +141,13 @@ class ReviewsHandler {
 
     //UPDATE
 
-    updateReview(id, author, content, imgLocation){
+    updateReview(id, author, content, imageFile){
         var query = new FormData();
         query.append("action", "updateReview");
         query.append("id", id);
         query.append("author", author);
         query.append("content", content);
-        query.append("imgLocation", imgLocation);
+        query.append("imageFile", imageFile);
         ajaxPost("index.php", query, function(response){
             $(reviewsHandler.workLocation).html("").append($("<div>").html("L'avis de " + author + " a été modifié."));
             reviewsHandler.displayNewReviewButton();

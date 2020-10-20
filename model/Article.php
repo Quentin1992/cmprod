@@ -6,16 +6,16 @@ class Article{
     private $author;
     private $title;
     private $date;
-    private $logoLocation;
+    private $imageFile;
     private $url;
 
-    function __construct($id, $author, $title, $date, $logoLocation, $url){
+    function __construct($id, $author, $title, $date, $imageFile, $url){
         $this->hydrate([
             'id' => $id,
             'author' => $author,
             'title' => $title,
             'date' => $date,
-            'logoLocation' => $logoLocation,
+            'imageFile' => $imageFile,
             'url' => $url
         ]);
     }
@@ -34,7 +34,7 @@ class Article{
     public function author(){ return $this->author; }
     public function title(){ return $this->title; }
     public function date(){ return $this->date; }
-    public function logoLocation(){ return $this->logoLocation; }
+    public function imageFile(){ return $this->imageFile; }
     public function url(){ return $this->url; }
 
     //setters
@@ -59,9 +59,9 @@ class Article{
         $this->date = $date;
     }
 
-    public function setLogoLocation($logoLocation){
-        if(is_string($logoLocation))
-            $this->logoLocation = $logoLocation;
+    public function setimageFile($imageFile){
+        if(is_string($imageFile))
+            $this->imageFile = $imageFile;
     }
 
     public function setUrl($url){

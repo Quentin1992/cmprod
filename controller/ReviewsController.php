@@ -3,14 +3,17 @@ class ReviewsController extends ReviewsManager{
 
     private $targetDirectory = "public/images/frontend/index/reviews/";
 
-    public function addReview($author, $content, $imgLocation){
-        $fileName = basename($imgLocation["name"]);
-        $fileError = $imgLocation['error'];
-        var_dump($fileError);
-        $targetFilePath = $this->targetDirectory . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-
-        move_uploaded_file($imgLocation['tmp_name'], $targetFilePath);
+    public function addReview($author, $content, $imageFile){
+        $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
+        $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
+        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+        if ($fileType == 'jpeg' || $fileType == 'jpg')
+            $image = imagecreatefromjpeg($imageFile['tmp_name']);
+	    elseif ($fileType == 'gif')
+            $image = imagecreatefromgif($imageFile['tmp_name']);
+	    elseif ($fileType == 'png')
+            $image = imagecreatefrompng($imageFile['tmp_name']);
+        imagewebp($image, $targetFilePath, 100);
         $review = new Review(null, $author, $content, $targetFilePath);
         $this->sendReview($review);
     }
@@ -23,17 +26,23 @@ class ReviewsController extends ReviewsManager{
                 'id' => $review->id(),
                 'author' => $review->author(),
                 'content' => $review->content(),
-                'imgLocation' => $review->imgLocation()
+                'imageFile' => $review->imageFile()
             );
         }
         return json_encode($reviewsData);
     }
 
-    public function updateReview($id, $author, $content, $imgLocation){
-        $fileName = basename($imgLocation["name"]);
-        $targetFilePath = $this->targetDirectory . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-        move_uploaded_file($imgLocation['tmp_name'], $targetFilePath);
+    public function updateReview($id, $author, $content, $imageFile){
+        $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
+        $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
+        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+        if ($fileType == 'jpeg' || $fileType == 'jpg')
+            $image = imagecreatefromjpeg($imageFile['tmp_name']);
+	    elseif ($fileType == 'gif')
+            $image = imagecreatefromgif($imageFile['tmp_name']);
+	    elseif ($fileType == 'png')
+            $image = imagecreatefrompng($imageFile['tmp_name']);
+        imagewebp($image, $targetFilePath, 100);
         $review = new Review($id, $author, $content, $targetFilePath);
         $this->sendReviewUpdate($review);
     }

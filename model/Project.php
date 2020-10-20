@@ -5,16 +5,16 @@ class Project{
     private $id;
     private $title;
     private $description;
-    private $imgLocation;
+    private $imageFile;
     private $url;
     private $category;
 
-    function __construct($id, $title, $description, $imgLocation, $url, $category){
+    function __construct($id, $title, $description, $imageFile, $url, $category){
         $this->hydrate([
             'id' => $id,
             'title' => $title,
             'description' => $description,
-            'imgLocation' => $imgLocation,
+            'imageFile' => $imageFile,
             'url' => $url,
             'category' => $category
         ]);
@@ -33,7 +33,7 @@ class Project{
     public function id(){ return $this->id; }
     public function title(){ return $this->title; }
     public function description(){ return $this->description; }
-    public function imgLocation(){ return $this->imgLocation; }
+    public function imageFile(){ return $this->imageFile; }
     public function url(){ return $this->url; }
     public function category(){ return $this->category; }
 
@@ -55,9 +55,9 @@ class Project{
             $this->description = $description;
     }
 
-    public function setImgLocation($imgLocation){
-        if(is_string($imgLocation))
-            $this->imgLocation = $imgLocation;
+    public function setimageFile($imageFile){
+        if(is_string($imageFile))
+            $this->imageFile = $imageFile;
     }
 
     public function setUrl($url){

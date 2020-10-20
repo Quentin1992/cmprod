@@ -8,12 +8,12 @@ class ArticlesManager extends Database{
     }
 
     public function sendArticle($article){
-        $sql = 'INSERT INTO articles(article_author, article_title, article_date, article_logo_location, article_url) VALUES(:author, :title, :date, :logoLocation, :url)';
+        $sql = 'INSERT INTO articles(article_author, article_title, article_date, article_logo_location, article_url) VALUES(:author, :title, :date, :imageFile, :url)';
         $query = $this->db->prepare($sql);
         $query->bindValue(':author', $article->author(), PDO::PARAM_STR);
         $query->bindValue(':title', $article->title(), PDO::PARAM_STR);
         $query->bindValue(':date', $article->date(), PDO::PARAM_STR);
-        $query->bindValue(':logoLocation', $article->logoLocation(), PDO::PARAM_STR);
+        $query->bindValue(':imageFile', $article->imageFile(), PDO::PARAM_STR);
         $query->bindValue(':url', $article->url(), PDO::PARAM_STR);
         $query->execute();
     }
@@ -31,12 +31,12 @@ class ArticlesManager extends Database{
     }
 
     public function sendArticleUpdate($article){
-        $sql = 'UPDATE articles SET article_author = :author, article_title = :title, article_date = :date, article_logo_location = :logoLocation, article_url = :url WHERE article_id = :id';
+        $sql = 'UPDATE articles SET article_author = :author, article_title = :title, article_date = :date, article_logo_location = :imageFile, article_url = :url WHERE article_id = :id';
         $query = $this->db->prepare($sql);
         $query->bindValue(':author', $article->author(), PDO::PARAM_STR);
         $query->bindValue(':title', $article->title(), PDO::PARAM_STR);
         $query->bindValue(':date', $article->date(), PDO::PARAM_STR);
-        $query->bindValue(':logoLocation', $article->logoLocation(), PDO::PARAM_STR);
+        $query->bindValue(':imageFile', $article->imageFile(), PDO::PARAM_STR);
         $query->bindValue(':url', $article->url(), PDO::PARAM_STR);
         $query->bindValue(':id', $article->id(), PDO::PARAM_INT);
         $query->execute();

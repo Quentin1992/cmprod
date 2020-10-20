@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: #ffffff;
+    background-image: url("../../images/frontend/index/whoAreWe-light.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: luminosity;
 }
 #projectsDisplay > div {
     height: 435px;

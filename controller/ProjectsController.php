@@ -3,11 +3,17 @@ class ProjectsController extends ProjectsManager{
 
     private $targetDirectory = "public/images/frontend/projects/";
 
-    public function addProject($title, $description, $imgLocation, $url, $category){
-        $fileName = basename($imgLocation["name"]);
-        $targetFilePath = $this->targetDirectory . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-        move_uploaded_file($imgLocation['tmp_name'], $targetFilePath);
+    public function addProject($title, $description, $imageFile, $url, $category){
+        $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
+        $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
+        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+        if ($fileType == 'jpeg' || $fileType == 'jpg')
+            $image = imagecreatefromjpeg($imageFile['tmp_name']);
+	    elseif ($fileType == 'gif')
+            $image = imagecreatefromgif($imageFile['tmp_name']);
+	    elseif ($fileType == 'png')
+            $image = imagecreatefrompng($imageFile['tmp_name']);
+        imagewebp($image, $targetFilePath, 100);
         $project = new Project(null, $title, $description, $targetFilePath, $url, $category);
         $this->sendProject($project);
     }
@@ -40,7 +46,7 @@ class ProjectsController extends ProjectsManager{
                 'id' => $project->id(),
                 'title' => $project->title(),
                 'description' => $project->description(),
-                'imgLocation' => $project->imgLocation(),
+                'imageFile' => $project->imageFile(),
                 'url' => $project->url(),
                 'category' => $project->category()
             );
@@ -48,11 +54,17 @@ class ProjectsController extends ProjectsManager{
         return json_encode($projectsData);
     }
 
-    public function updateProject($id, $title, $description, $imgLocation, $url, $category){
-        $fileName = basename($imgLocation["name"]);
-        $targetFilePath = $this->targetDirectory . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-        move_uploaded_file($imgLocation['tmp_name'], $targetFilePath);
+    public function updateProject($id, $title, $description, $imageFile, $url, $category){
+        $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
+        $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
+        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+        if ($fileType == 'jpeg' || $fileType == 'jpg')
+            $image = imagecreatefromjpeg($imageFile['tmp_name']);
+	    elseif ($fileType == 'gif')
+            $image = imagecreatefromgif($imageFile['tmp_name']);
+	    elseif ($fileType == 'png')
+            $image = imagecreatefrompng($imageFile['tmp_name']);
+        imagewebp($image, $targetFilePath, 100);
         $project = new Project($id, $title, $description, $targetFilePath, $url, $category);
         $this->sendProjectUpdate($project);
     }

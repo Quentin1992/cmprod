@@ -8,11 +8,11 @@ class ProjectsManager extends Database{
     }
 
     public function sendProject($project){
-        $sql = 'INSERT INTO projects(project_title, project_description, project_img_location, project_url, project_category) VALUES(:title, :description, :imgLocation, :url, :category)';
+        $sql = 'INSERT INTO projects(project_title, project_description, project_img_location, project_url, project_category) VALUES(:title, :description, :imageFile, :url, :category)';
         $query = $this->db->prepare($sql);
         $query->bindValue(':title', $project->title(), PDO::PARAM_STR);
         $query->bindValue(':description', $project->description(), PDO::PARAM_STR);
-        $query->bindValue(':imgLocation', $project->imgLocation(), PDO::PARAM_STR);
+        $query->bindValue(':imageFile', $project->imageFile(), PDO::PARAM_STR);
         $query->bindValue(':url', $project->url(), PDO::PARAM_STR);
         $query->bindValue(':category', $project->category(), PDO::PARAM_STR);
         $query->execute();
@@ -36,11 +36,11 @@ class ProjectsManager extends Database{
     }
 
     public function sendProjectUpdate($project){
-        $sql = 'UPDATE projects SET project_title = :title, project_description = :description, project_img_location = :imgLocation, project_url = :url, project_category = :category WHERE project_id = :id';
+        $sql = 'UPDATE projects SET project_title = :title, project_description = :description, project_img_location = :imageFile, project_url = :url, project_category = :category WHERE project_id = :id';
         $query = $this->db->prepare($sql);
         $query->bindValue(':title', $project->title(), PDO::PARAM_STR);
         $query->bindValue(':description', $project->description(), PDO::PARAM_STR);
-        $query->bindValue(':imgLocation', $project->imgLocation(), PDO::PARAM_STR);
+        $query->bindValue(':imageFile', $project->imageFile(), PDO::PARAM_STR);
         $query->bindValue(':url', $project->url(), PDO::PARAM_STR);
         $query->bindValue(':category', $project->category(), PDO::PARAM_STR);
         $query->bindValue(':id', $project->id(), PDO::PARAM_INT);

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
+    <meta name="description" content="<?php echo $description ?>">
     <link rel="icon" href="public/images/eye.jpg" />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap" rel="stylesheet">
@@ -19,7 +20,9 @@
 
     <!-- pages stylesheets -->
     <link rel="stylesheet" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page.css">
+    <?php if(file_exists("public/css/" . $page . "/" . $page . "Page-medium.css")){ ?>
     <link rel="stylesheet" media="screen and (max-width: 1440px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-medium.css">
+    <?php } ?>
     <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-small.css">
     <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-tablet.css">
     <link rel="stylesheet" media="screen and (max-width: 426px)" href="public/css/<?php echo $page ?>/<?php echo $page ?>Page-smartphone.css">
@@ -102,7 +105,7 @@
         <div>
             <h3>Vous avez un <span>projet ?</span></h3>
             <a href="index.php?action=contactView">Contactez-nous</a>
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fchaud.mirette%2F&tabs=messages&width=340&height=299&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=131622276870917" width="340" height="299" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <iframe title="Messenger" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fchaud.mirette%2F&tabs=messages&width=340&height=299&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=131622276870917" width="340" height="299" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
         </div>
         <div>
             <div>

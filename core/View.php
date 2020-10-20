@@ -4,6 +4,7 @@ class View
     // view title (defined in view file)
     protected $title;
     protected $page;
+    protected $description;
 
     // render function allows view display -> called in each controller
     public function render($view, $params = null) {

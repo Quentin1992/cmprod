@@ -36,8 +36,8 @@ class ArticlesHandler {
         for(let i=2015; i <= 2050; i++){selectYear.append($("<option>", {value:i, html:i}));}
         selectDiv.append(selectYear);
         articleForm.append(selectDiv);
-        articleForm.append($("<label>", {for:"logoLocation", html:"Logo de l'auteur : "}));
-        articleForm.append($("<input>", {type:"file", name:"logoLocation", required:true}).on("change", function(e){
+        articleForm.append($("<label>", {for:"imageFile", html:"Logo de l'auteur : "}));
+        articleForm.append($("<input>", {type:"file", name:"imageFile", required:true}).on("change", function(e){
             $("#formImgDiv").remove();
             let image = $("<img>").attr("src", window.URL.createObjectURL(e.target.files[0]));
             $("<div>", {
@@ -65,7 +65,7 @@ class ArticlesHandler {
             articleForm[0].year.value = dateNumbers.year;
             articleForm.children(":nth-child(11)").html("Modifier le logo actuel : ");
             articleForm.children(":nth-child(12)").removeAttr("required");
-            //$("<img>").attr("src", articleData.logoLocation).insertAfter(articleForm[0].logoLocation);
+            //$("<img>").attr("src", articleData.imageFile).insertAfter(articleForm[0].imageFile);
             articleForm[0].url.value = articleData.url;
             articleForm[0].submitButton.value = "Mettre à jour cet article";
             $(articlesHandler.workLocation).append($("<h3>").html("Modification de l'article sélectionné"));
@@ -75,21 +75,21 @@ class ArticlesHandler {
         articleForm.on("submit", function(e){
             let date = converter.intToDate(e.target.day.value, e.target.month.value, e.target.year.value);
             if(articleData == undefined)
-                articlesHandler.addArticle(e.target.author.value, e.target.title.value, date, e.target.logoLocation.files[0], e.target.url.value);
+                articlesHandler.addArticle(e.target.author.value, e.target.title.value, date, e.target.imageFile.files[0], e.target.url.value);
             else if(articleData != undefined)
-                articlesHandler.updateArticle(articleData.id, e.target.author.value, e.target.title.value, date, e.target.logoLocation.files[0], e.target.url.value);
+                articlesHandler.updateArticle(articleData.id, e.target.author.value, e.target.title.value, date, e.target.imageFile.files[0], e.target.url.value);
             e.preventDefault();
         });
         $(articlesHandler.workLocation).append(articleForm);
     }
 
-    addArticle(author, title, date, logoLocation, url){
+    addArticle(author, title, date, imageFile, url){
         var query = new FormData();
         query.append("action", "addArticle");
         query.append("author", author);
         query.append("title", title);
         query.append("date", date);
-        query.append("logoLocation", logoLocation);
+        query.append("imageFile", imageFile);
         query.append("url", url);
         ajaxPost("index.php", query, function(response){
             $(articlesHandler.workLocation).html("").append($("<div>").html("L'article " + title + " a été ajouté."));
@@ -117,7 +117,7 @@ class ArticlesHandler {
             articles.forEach(function(articleData){
                 let visibleDiv = $("<div>");
                 let articleLink = $("<a>");
-                articleLink.append($("<div>").append($("<img>").attr("src", articleData.logoLocation)));
+                articleLink.append($("<div>").append($("<img>").attr("src", articleData.imageFile)));
                 let textDiv = $("<div>");
                 textDiv.append($("<h3>").html(articleData.author));
                 textDiv.append($("<h4>").html(articleData.title));
@@ -147,14 +147,14 @@ class ArticlesHandler {
 
     //UPDATE
 
-    updateArticle(id, author, title, date, logoLocation, url){
+    updateArticle(id, author, title, date, imageFile, url){
         var query = new FormData();
         query.append("action", "updateArticle");
         query.append("id", id);
         query.append("author", author);
         query.append("title", title);
         query.append("date", date);
-        query.append("logoLocation", logoLocation);
+        query.append("imageFile", imageFile);
         query.append("url", url);
         ajaxPost("index.php", query, function(response){
             $(articlesHandler.workLocation).html("").append($("<div>").html("L'article' " + title + " a été modifié."));

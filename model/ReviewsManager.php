@@ -8,11 +8,11 @@ class ReviewsManager extends Database{
     }
 
     public function sendReview($review){
-        $sql = 'INSERT INTO reviews(review_author, review_content, review_img_location) VALUES(:author, :content, :imgLocation)';
+        $sql = 'INSERT INTO reviews(review_author, review_content, review_img_location) VALUES(:author, :content, :imageFile)';
         $query = $this->db->prepare($sql);
         $query->bindValue(':author', $review->author(), PDO::PARAM_STR);
         $query->bindValue(':content', $review->content(), PDO::PARAM_STR);
-        $query->bindValue(':imgLocation', $review->imgLocation(), PDO::PARAM_STR);
+        $query->bindValue(':imageFile', $review->imageFile(), PDO::PARAM_STR);
         $query->execute();
     }
 
@@ -27,11 +27,11 @@ class ReviewsManager extends Database{
     }
 
     public function sendReviewUpdate($review){
-        $sql = 'UPDATE reviews SET review_author = :author, review_content = :content, review_img_location = :imgLocation WHERE review_id = :id';
+        $sql = 'UPDATE reviews SET review_author = :author, review_content = :content, review_img_location = :imageFile WHERE review_id = :id';
         $query = $this->db->prepare($sql);
         $query->bindValue(':author', $review->author(), PDO::PARAM_STR);
         $query->bindValue(':content', $review->content(), PDO::PARAM_STR);
-        $query->bindValue(':imgLocation', $review->imgLocation(), PDO::PARAM_STR);
+        $query->bindValue(':imageFile', $review->imageFile(), PDO::PARAM_STR);
         $query->bindValue(':id', $review->id(), PDO::PARAM_INT);
         $query->execute();
     }

@@ -3,11 +3,17 @@ class ArticlesController extends ArticlesManager{
 
     private $targetDirectory = "public/images/frontend/articles/";
 
-    public function addArticle($author, $title, $date, $logoLocation, $url){
-        $fileName = basename($logoLocation["name"]);
-        $targetFilePath = $this->targetDirectory . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-        move_uploaded_file($logoLocation['tmp_name'], $targetFilePath);
+    public function addArticle($author, $title, $date, $imageFile, $url){
+        $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
+        $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
+        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+        if ($fileType == 'jpeg' || $fileType == 'jpg')
+            $image = imagecreatefromjpeg($imageFile['tmp_name']);
+	    elseif ($fileType == 'gif')
+            $image = imagecreatefromgif($imageFile['tmp_name']);
+	    elseif ($fileType == 'png')
+            $image = imagecreatefrompng($imageFile['tmp_name']);
+        imagewebp($image, $targetFilePath, 100);
         $article = new Article(null, $author, $title, $date, $targetFilePath, $url);
         $this->sendArticle($article);
     }
@@ -21,18 +27,24 @@ class ArticlesController extends ArticlesManager{
                 'author' => $article->author(),
                 'title' => $article->title(),
                 'date' => $article->date(),
-                'logoLocation' => $article->logoLocation(),
+                'imageFile' => $article->imageFile(),
                 'url' => $article->url()
             );
         }
         return json_encode($articlesData);
     }
 
-    public function updateArticle($id, $author, $title, $date, $logoLocation, $url){
-        $fileName = basename($logoLocation["name"]);
-        $targetFilePath = $this->targetDirectory . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-        move_uploaded_file($logoLocation['tmp_name'], $targetFilePath);
+    public function updateArticle($id, $author, $title, $date, $imageFile, $url){
+        $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
+        $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
+        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+        if ($fileType == 'jpeg' || $fileType == 'jpg')
+            $image = imagecreatefromjpeg($imageFile['tmp_name']);
+	    elseif ($fileType == 'gif')
+            $image = imagecreatefromgif($imageFile['tmp_name']);
+	    elseif ($fileType == 'png')
+            $image = imagecreatefrompng($imageFile['tmp_name']);
+        imagewebp($image, $targetFilePath, 100);
         $article = new Article($id, $author, $title, $date, $targetFilePath, $url);
         $this->sendArticleUpdate($article);
     }

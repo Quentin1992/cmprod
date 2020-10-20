@@ -1,10 +1,11 @@
 <?php
 $title = "Chaud Mirette Productions - Qui sommes-nous ?";
 $page = "index";
+$description = "C'est à la suite de longues études de photographie, de cinéma et de journalisme, que Chaud Mirette Productions a vu le jour en tant que société de productions audiovisuelles. Très rapidement, elle a su s'imposer dans le milieu audiovisuel.";
  ?>
 
 <header id="container">
-    <video id="video" poster="public/images/frontend/showreel-light.png">
+    <video id="video" poster="public/images/frontend/showreel-light.webp">
         <source src="public/videos/showreel_720.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la balise "video".
     </video>
@@ -56,11 +57,11 @@ $page = "index";
         <a href="index.php?action=contactView">Contactez-nous</a>
     </div>
     <div>
-        <img src="public/images/frontend/index/whoAreWe-light.png">
+        <img src="public/images/frontend/index/whoAreWe-light.webp" alt="">
     </div>
 </section>
 <section id="ourProjects">
-    <img src="public/images/frontend/index/ourProjects-light.png">
+    <img src="public/images/frontend/index/ourProjects-light.webp" alt="">
     <div>
         <h2>Nos <span>réalisations</span></h2>
         <p>Réalisations audiovisuelles publicitaires, événementielles, promotionnelles, artistiques, atypique, dynamique, moderne ?<br />
@@ -70,14 +71,14 @@ $page = "index";
 </section>
 <section id="reviewsDisplay">
     <div>
-        <button><i class="fas fa-chevron-left"></i></button>
+        <button aria-label="Avis précédent"><i class="fas fa-chevron-left"></i></button>
         <a href="index.php?action=articlesView"></a>
-        <button><i class="fas fa-chevron-right"></i></button>
+        <button aria-label="Avis suivant"><i class="fas fa-chevron-right"></i></button>
     </div>
 </section>
 <section id="ourSkills">
     <div>
-        <img src="public/images/frontend/index/ourSkills-light.png">
+        <img src="public/images/frontend/index/ourSkills-light.webp" alt="">
     </div>
     <div>
         <h2>Nos <span>compétences</span></h2>

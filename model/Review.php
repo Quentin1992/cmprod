@@ -5,14 +5,14 @@ class Review{
     private $id;
     private $author;
     private $content;
-    private $imgLocation;
+    private $imageFile;
 
-    function __construct($id, $author, $content, $imgLocation){
+    function __construct($id, $author, $content, $imageFile){
         $this->hydrate([
             'id' => $id,
             'author' => $author,
             'content' => $content,
-            'imgLocation' => $imgLocation
+            'imageFile' => $imageFile
         ]);
     }
 
@@ -29,7 +29,7 @@ class Review{
     public function id(){ return $this->id; }
     public function author(){ return $this->author; }
     public function content(){ return $this->content; }
-    public function imgLocation(){ return $this->imgLocation; }
+    public function imageFile(){ return $this->imageFile; }
 
     //setters
 
@@ -49,9 +49,9 @@ class Review{
             $this->content = $content;
     }
 
-    public function setImgLocation($imgLocation){
-        if(is_string($imgLocation))
-            $this->imgLocation = $imgLocation;
+    public function setimageFile($imageFile){
+        if(is_string($imageFile))
+            $this->imageFile = $imageFile;
     }
 
 }

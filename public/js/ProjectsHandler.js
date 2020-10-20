@@ -24,8 +24,8 @@ class ProjectsHandler {
         projectForm.append($("<input>", {type:"text", name:"title", required:true}));
         projectForm.append($("<label>", {for:"description", html:"Description : "}));
         projectForm.append($("<input>", {type:"text", name:"description", required:true}));
-        projectForm.append($("<label>", {for:"imgLocation", html:"Image de fond : "}));
-        projectForm.append($("<input>", {type:"file", name:"imgLocation", required:true}).on("change", function(e){
+        projectForm.append($("<label>", {for:"imageFile", html:"Image de fond : "}));
+        projectForm.append($("<input>", {type:"file", name:"imageFile", required:true}).on("change", function(e){
             $("#formImgDiv").remove();
             let image = $("<img>").attr("src", window.URL.createObjectURL(e.target.files[0]));
             $("<div>", {
@@ -62,20 +62,20 @@ class ProjectsHandler {
         }
         projectForm.on("submit", function(e){
             if(projectData == undefined)
-                projectsHandler.addProject(e.target.title.value, e.target.description.value, e.target.imgLocation.files[0], e.target.url.value, e.target.category.value);
+                projectsHandler.addProject(e.target.title.value, e.target.description.value, e.target.imageFile.files[0], e.target.url.value, e.target.category.value);
             else if(projectData != undefined)
-                projectsHandler.updateProject(projectData.id, e.target.title.value, e.target.description.value, e.target.imgLocation.files[0], e.target.url.value, e.target.category.value);
+                projectsHandler.updateProject(projectData.id, e.target.title.value, e.target.description.value, e.target.imageFile.files[0], e.target.url.value, e.target.category.value);
             e.preventDefault();
         });
         $(projectsHandler.workLocation).append(projectForm);
     }
 
-    addProject(title, description, imgLocation, url, category){
+    addProject(title, description, imageFile, url, category){
         var query = new FormData();
         query.append("action", "addProject");
         query.append("title", title);
         query.append("description", description);
-        query.append("imgLocation", imgLocation);
+        query.append("imageFile", imageFile);
         query.append("url", url);
         query.append("category", category);
         ajaxPost("index.php", query, function(response){
@@ -117,7 +117,7 @@ class ProjectsHandler {
         if(projects[0] != undefined){
             projects.forEach(function(projectData){
                 let projectLink = $("<a>").attr("href", projectData.url);
-                projectLink.append($("<img>").attr("src", projectData.imgLocation));
+                projectLink.append($("<img>").attr("src", projectData.imageFile));
                 let hiddenDiv = $("<div>");
                 hiddenDiv.append($("<h3>").html(projectData.title));
                 hiddenDiv.append($("<p>").html(projectData.description));
@@ -177,13 +177,13 @@ class ProjectsHandler {
 
     //UPDATE
 
-    updateProject(id, title, description, imgLocation, url, category){
+    updateProject(id, title, description, imageFile, url, category){
         var query = new FormData();
         query.append("action", "updateProject");
         query.append("id", id);
         query.append("title", title);
         query.append("description", description);
-        query.append("imgLocation", imgLocation);
+        query.append("imageFile", imageFile);
         query.append("url", url);
         query.append("category", category);
         ajaxPost("index.php", query, function(response){

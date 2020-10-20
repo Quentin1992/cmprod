@@ -1,6 +1,6 @@
-let reviewsHandler = new ReviewsHandler("backend", "body > section:nth-child(2) > div", "#reviewsDisplay > div > a");
-let projectsHandler = new ProjectsHandler("backend", "body > section:nth-child(2) > div", "#projectsDisplay");
-let articlesHandler = new ArticlesHandler("backend", "body > section:nth-child(2) > div", "#articlesDisplay");
+let reviewsHandler = new ReviewsHandler("backend", "#workOnPublication > div", "#reviewsDisplay > div > a");
+let projectsHandler = new ProjectsHandler("backend", "#workOnPublication > div", "#projectsDisplay");
+let articlesHandler = new ArticlesHandler("backend", "#workOnPublication > div", "#articlesDisplay");
 let converter = new Converter();
 
 $(document).ready(function(){

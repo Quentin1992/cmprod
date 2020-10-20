@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Tableau de bord - Chaud Mirette Productions";
 $page = "backend";
 ?>
@@ -15,7 +16,10 @@ if((isset($_SESSION['password']) && password_verify($_SESSION['password'], "$2y$
         $_SESSION['password'] = $_POST['password'];
     }
 ?>
-<section>
+<div>
+    <a href="../controller/logout.php">Déconnexion</a>
+</div>
+<section id="workOnPublication">
     <h2>Ajouter ou modifier une publication :</h2>
     <div></div>
 </section>
