@@ -3,20 +3,30 @@ class ProjectsController extends ProjectsManager{
 
     private $targetDirectory = "public/images/frontend/projects/";
 
+    //CREATE
+
     public function addProject($title, $description, $imageFile, $url, $category){
         $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
         $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
-        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
-        if ($fileType == 'jpeg' || $fileType == 'jpg')
-            $image = imagecreatefromjpeg($imageFile['tmp_name']);
-	    elseif ($fileType == 'gif')
-            $image = imagecreatefromgif($imageFile['tmp_name']);
-	    elseif ($fileType == 'png')
-            $image = imagecreatefrompng($imageFile['tmp_name']);
-        imagewebp($image, $targetFilePath, 100);
+        if($fileType == 'svg'){
+            $targetFilePath = $this->targetDirectory . $fileName . ".svg";
+            move_uploaded_file($imageFile['tmp_name'], $targetFilePath);
+        }
+        else {
+            $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+            if ($fileType == 'jpeg' || $fileType == 'jpg')
+                $image = imagecreatefromjpeg($imageFile['tmp_name']);
+    	    elseif ($fileType == 'gif')
+                $image = imagecreatefromgif($imageFile['tmp_name']);
+    	    elseif ($fileType == 'png')
+                $image = imagecreatefrompng($imageFile['tmp_name']);
+            imagewebp($image, $targetFilePath, 100);
+        }
         $project = new Project(null, $title, $description, $targetFilePath, $url, $category);
         $this->sendProject($project);
     }
+
+    //READ
 
     public function countProjects($category){
         if($category == "video")
@@ -54,20 +64,30 @@ class ProjectsController extends ProjectsManager{
         return json_encode($projectsData);
     }
 
+    //UPDATE
+
     public function updateProject($id, $title, $description, $imageFile, $url, $category){
         $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
         $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
-        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
-        if ($fileType == 'jpeg' || $fileType == 'jpg')
-            $image = imagecreatefromjpeg($imageFile['tmp_name']);
-	    elseif ($fileType == 'gif')
-            $image = imagecreatefromgif($imageFile['tmp_name']);
-	    elseif ($fileType == 'png')
-            $image = imagecreatefrompng($imageFile['tmp_name']);
-        imagewebp($image, $targetFilePath, 100);
+        if($fileType == 'svg'){
+            $targetFilePath = $this->targetDirectory . $fileName . ".svg";
+            move_uploaded_file($imageFile['tmp_name'], $targetFilePath);
+        }
+        else {
+            $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+            if ($fileType == 'jpeg' || $fileType == 'jpg')
+                $image = imagecreatefromjpeg($imageFile['tmp_name']);
+    	    elseif ($fileType == 'gif')
+                $image = imagecreatefromgif($imageFile['tmp_name']);
+    	    elseif ($fileType == 'png')
+                $image = imagecreatefrompng($imageFile['tmp_name']);
+            imagewebp($image, $targetFilePath, 100);
+        }
         $project = new Project($id, $title, $description, $targetFilePath, $url, $category);
         $this->sendProjectUpdate($project);
     }
+
+    //DELETE
 
     public function deleteProject($id){
         $this->sendProjectDeletion($id);

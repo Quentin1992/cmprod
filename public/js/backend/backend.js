@@ -1,35 +1,54 @@
-let reviewsHandler = new ReviewsHandler("backend", "#workOnPublication > div", "#reviewsDisplay > div > a");
-let projectsHandler = new ProjectsHandler("backend", "#workOnPublication > div", "#projectsDisplay");
-let articlesHandler = new ArticlesHandler("backend", "#workOnPublication > div", "#articlesDisplay");
+let reviewsHandler = new ReviewsHandler("backend", "#form-modal", "#reviewsDisplay > div > a");
+let projectsHandler = new ProjectsHandler("backend", "#form-modal", "#projectsDisplay");
+let articlesHandler = new ArticlesHandler("backend", "#form-modal", "#articlesDisplay");
 let converter = new Converter();
 
 $(document).ready(function(){
+    let formModal = $("#form-modal");
     if($("section").length > 0){
         $("#reviewsDisplay").hide();
         $("#projectsDisplay").hide();
         $("#articlesDisplay").hide();
-        reviewsHandler.displayNewReviewButton();
-        projectsHandler.displayNewProjectButton();
-        articlesHandler.displayNewArticleButton();
-        $("nav button:nth-child(1)").on("click", function(){
-            $("nav button").css("backgroundColor", "#4d4d4d");
-            $("nav button:nth-child(1)").css("backgroundColor", "#111111");
+        //new publication buttons
+        $("#newReviewButton").on("click", function(){
+            reviewsHandler.displayReviewForm();
+            formModal.show();
+        });
+        $("#newProjectButton").on("click", function(){
+            projectsHandler.displayProjectForm();
+            formModal.show();
+        });
+        $("#newArticleButton").on("click", function(){
+            articlesHandler.displayArticleForm();
+            formModal.show();
+        });
+        window.onclick = function(e) {
+            if (e.target == document.getElementById("form-modal")) {
+                formModal.hide();
+            }
+        }
+        //display publications buttons
+        $("#reviewsButton").on("click", function(){
+            $("#projectsNav").remove();
+            $("#publicationsSelector button").css("backgroundColor", "#4d4d4d");
+            $("#reviewsButton").css("backgroundColor", "#111111");
             reviewsHandler.getReviews();
             $("#reviewsDisplay").show();
             $("#projectsDisplay").hide();
             $("#articlesDisplay").hide();
         });
-        $("nav button:nth-child(2)").on("click", function(){
-            $("nav button").css("backgroundColor", "#4d4d4d");
-            $("nav button:nth-child(2)").css("backgroundColor", "#111111");
+        $("#projectsButton").on("click", function(){
+            $("#publicationsSelector button").css("backgroundColor", "#4d4d4d");
+            $("#projectsButton").css("backgroundColor", "#111111");
             projectsHandler.getProjects();
             $("#reviewsDisplay").hide();
             $("#projectsDisplay").show();
             $("#articlesDisplay").hide();
         });
-        $("nav button:nth-child(3)").on("click", function(){
-            $("nav button").css("backgroundColor", "#4d4d4d");
-            $("nav button:nth-child(3)").css("backgroundColor", "#111111");
+        $("#articlesButton").on("click", function(){
+            $("#projectsNav").remove();
+            $("#publicationsSelector button").css("backgroundColor", "#4d4d4d");
+            $("#articlesButton").css("backgroundColor", "#111111");
             articlesHandler.getArticles();
             $("#reviewsDisplay").hide();
             $("#projectsDisplay").hide();

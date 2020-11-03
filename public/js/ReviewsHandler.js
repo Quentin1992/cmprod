@@ -11,15 +11,10 @@ class ReviewsHandler {
 
     //CREATE
 
-    displayNewReviewButton(){
-        $(reviewsHandler.workLocation).append($("<button>").html("Ajouter un nouvel avis").on("click", function(e){
-            $(reviewsHandler.workLocation).html("");
-            reviewsHandler.displayReviewForm();
-        }));
-    }
-
     displayReviewForm(reviewData){
         let reviewForm = $("<form>", {action:"#"});
+        let formTitle = $("<h3>");
+        reviewForm.append(formTitle);
         reviewForm.append($("<label>", {for:"author", html:"Auteur de l'avis : "}));
         reviewForm.append($("<input>", {type:"text", name:"author", required:true}));
         reviewForm.append($("<label>", {for:"content", html:"Avis : "}));
@@ -33,12 +28,6 @@ class ReviewsHandler {
             }).append(image).insertAfter($(this));
         }));
         reviewForm.append($("<input>", {type:"submit", name:"submitButton", value:"Ajouter cet avis"}));
-        reviewForm.append($("<button>").html("Annuler").on("click", function(){
-            $(reviewsHandler.workLocation).html("");
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
-        }));
         $(reviewsHandler.workLocation).html("");
         if(reviewData != undefined){
             reviewForm[0].author.value = reviewData.author;
@@ -46,12 +35,13 @@ class ReviewsHandler {
             reviewForm.children(":nth-child(5)").html("Modifier l'image actuelle : ");
             reviewForm.children(":nth-child(5)").removeAttr("required");
             reviewForm[0].submitButton.value = "Mettre à jour cet avis";
-            $(reviewsHandler.workLocation).append($("<h3>").html("Modification de l'avis sélectionné"));
+            formTitle.html("Modification de l'avis sélectionné");
         }
         else {
-            $(reviewsHandler.workLocation).append($("<h3>").html("Création d'un avis"));
+            formTitle.html("Création d'un avis");
         }
         reviewForm.on("submit", function(e){
+            $("form input[type='file']").after($("<p>").html("Chargement..."));
             if(reviewData == undefined){
                 reviewsHandler.addReview(e.target.author.value, e.target.content.value, e.target.image.files[0]);
             } else if(reviewData != undefined){
@@ -70,9 +60,6 @@ class ReviewsHandler {
         query.append("imageFile", imageFile);
         ajaxPost("index.php", query, function(response){
             $(reviewsHandler.workLocation).html("").append($("<div>").html("L'avis de " + author + " a été ajouté."));
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
             reviewsHandler.getReviews();
         });
     }
@@ -86,7 +73,42 @@ class ReviewsHandler {
             let reviews = JSON.parse(response);
             reviewsHandler.numberOfReviews = reviews.length;
             reviewsHandler.initSlider(reviews);
+            if(reviewsHandler.side == "backend")
+                reviewsHandler.displayReviewsTable(reviews);
         });
+    }
+
+    displayReviewsTable(reviews){
+        $("#reviewsTableLocation").html("");
+        if(reviews[0] != undefined){
+            let reviewsTable = $("<table>");
+            let headersRow = $("<tr>");
+            headersRow.append($("<th>").html("Image"));
+            headersRow.append($("<th>").html("Commentaire"));
+            headersRow.append($("<th>").html("Auteur"));
+            headersRow.append($("<th>").html("Actions"));
+            reviewsTable.append(headersRow);
+            reviews.forEach(function(reviewData){
+                let reviewRow = $("<tr>");
+                reviewRow.append($("<td>").append($("<img>").attr({src:reviewData.imageFile, alt:"logo "+reviewData.author})));
+                reviewRow.append($("<td>").append(reviewData.content));
+                reviewRow.append($("<td>").append(reviewData.author));
+                let updateButton = $("<button>").html("Modifier").on("click", function(){
+                    $("#form-modal").show();
+                    reviewsHandler.displayReviewForm(reviewData);
+                });
+                let deleteButton = $("<button>").html("Supprimer").on("click", function(){
+                    reviewsHandler.deleteReview(reviewData.id);
+                });
+                reviewRow.append($("<td>").append(updateButton, deleteButton));
+                reviewsTable.append(reviewRow);
+            });
+            $("#reviewsTableLocation").append(reviewsTable);
+            $("html").animate({
+                scrollTop: $("#reviewsButton").offset().top
+            }, 1000);
+        }
+        else $("#reviewsTableLocation").append($("<p>").html("Pas d'avis à afficher"));
     }
 
     displayReview(reviewData){
@@ -100,27 +122,17 @@ class ReviewsHandler {
         authorDiv.append($("<span>").html(reviewData.author));
         textDiv.append(authorDiv);
         $(reviewsHandler.displayLocation).append(textDiv);
-        if(reviewsHandler.side == "backend"){
-            let buttonsLocation = $(reviewsHandler.displayLocation).parent().parent().children().eq(1);
-            buttonsLocation.html("");
-            buttonsLocation.append($("<button>").html("Modifier").on("click", function(){
-                reviewsHandler.displayReviewForm(reviewData);
-            }));
-            buttonsLocation.append($("<button>").html("Supprimer").on("click", function(){
-                reviewsHandler.deleteReview(reviewData.id);
-            }));
-        }
     }
 
     initSlider(reviews){
         reviewsHandler.currentReview = 0;
         reviewsHandler.displayReview(reviews[reviewsHandler.currentReview]);
-        $("#reviewsDisplay > div:first-child button").first().off("click");
-        $("#reviewsDisplay > div:first-child button").first().on("click", function(){
+        $("#previousSlideButton").first().off("click");
+        $("#previousSlideButton").first().on("click", function(){
             reviewsHandler.previousSlide(reviews);
         });
-        $("#reviewsDisplay > div:first-child button").last().off("click");
-        $("#reviewsDisplay > div:first-child button").last().on("click", function(){
+        $("#nextSlideButton").last().off("click");
+        $("#nextSlideButton").last().on("click", function(){
             reviewsHandler.nextSlide(reviews);
         });
     };
@@ -150,9 +162,6 @@ class ReviewsHandler {
         query.append("imageFile", imageFile);
         ajaxPost("index.php", query, function(response){
             $(reviewsHandler.workLocation).html("").append($("<div>").html("L'avis de " + author + " a été modifié."));
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
             reviewsHandler.getReviews();
         });
     }

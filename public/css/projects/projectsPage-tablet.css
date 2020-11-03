@@ -10,12 +10,11 @@ header > div {
     padding: 2em 3em;
 }
 
-body > nav {
+#categorySelector {
     flex-direction: column;
     padding: 1em 0em;
 }
-body > nav > button {
+#categorySelector > button {
     border-radius: 15px;
     margin: 0em 1em;
-    padding: 0em 4em;
 }

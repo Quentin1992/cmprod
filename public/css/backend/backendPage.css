@@ -78,17 +78,17 @@ body > section {
     background-color: #dedede;
 }
 
-#workOnPublication > div {
+#addPublication > div {
     text-align: center;
     background-color: #dedede;
 }
-#workOnPublication > div > div {
+#addPublication > div > div {
     background-color: #fff;
     padding: 1em;
     font-weight: 600;
 }
 
-#workOnPublication > div > button {
+#addPublication > div > button {
     color: #ffffff;
     background-color: #111111;
     padding: 1em 4em;
@@ -99,54 +99,67 @@ body > section {
     margin: 1em;
     border: none;
 }
-#workOnPublication > div > button:hover {
+#addPublication > div > button:hover {
     background-color: #4d4d4d;
 }
-#workOnPublication > div > form {
+
+#form-modal {
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow: scroll;
+}
+#form-modal form {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin: auto;
+    margin: 1em auto;
     text-align: left;
     background-color: #4d4d4d;
     color: #dedede;
     padding: 1em;
-    margin-bottom: 1em;
 }
-#workOnPublication > div > form > div,
-#workOnPublication > div > form > input[type="file"] {
+#form-modal > form > div,
+#form-modal > form > input[type="file"] {
     text-align: center;
 }
-#workOnPublication > div > form > #formImgDiv {
+#form-modal > form > #formImgDiv {
     width: 100%;
     height: 300px;
     display: flex;
     margin: 15px auto;
     background-color: #dedede;
 }
-#workOnPublication > div > form > div img {
+#form-modal > form > div img {
     object-fit: contain;
     width: 100%;
 }
-#workOnPublication > div > form > input[type="text"],
-#workOnPublication > div > form > textarea {
+#form-modal > form > input[type="text"],
+#form-modal > form > textarea {
     padding: 1em;
     font-family: Roboto;
 }
-#workOnPublication > div > form > input[type="submit"],
-#workOnPublication > div > form > button {
+#form-modal > form > input[type="submit"],
+#form-modal > form > button {
     padding: 1em;
     margin: 1em;
 }
 
-body > nav {
+#publicationsSelector {
     display: flex;
+    background-color: #dedede;
 }
-body > nav > button {
+#publicationsSelector > button {
     flex: 1;
     color: #ffffff;
     background-color: #4d4d4d;
-    padding: 1em 4em;
+    padding: 1em;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 0.9em;

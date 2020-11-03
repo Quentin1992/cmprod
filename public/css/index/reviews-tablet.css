@@ -1,7 +1,16 @@
-#reviewsDisplay > div:first-child {
+#sliderDiv {
     height: auto;
     padding: 2em 0;
 }
-#reviewsDisplay > div:first-child > a {
+#sliderDiv > a {
     flex-direction: column;
+}
+
+#reviewsTableLocation table button {
+    padding: 1em;
+    margin: 1em 0;
+}
+
+#reviewsTableLocation table td {
+    padding: 0.5em 0;
 }

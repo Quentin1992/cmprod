@@ -6,14 +6,20 @@ class ReviewsController extends ReviewsManager{
     public function addReview($author, $content, $imageFile){
         $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
         $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
-        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
-        if ($fileType == 'jpeg' || $fileType == 'jpg')
-            $image = imagecreatefromjpeg($imageFile['tmp_name']);
-	    elseif ($fileType == 'gif')
-            $image = imagecreatefromgif($imageFile['tmp_name']);
-	    elseif ($fileType == 'png')
-            $image = imagecreatefrompng($imageFile['tmp_name']);
-        imagewebp($image, $targetFilePath, 100);
+        if($fileType == 'svg'){
+            $targetFilePath = $this->targetDirectory . $fileName . ".svg";
+            move_uploaded_file($imageFile['tmp_name'], $targetFilePath);
+        }
+        else {
+            $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+            if ($fileType == 'jpeg' || $fileType == 'jpg')
+                $image = imagecreatefromjpeg($imageFile['tmp_name']);
+    	    elseif ($fileType == 'gif')
+                $image = imagecreatefromgif($imageFile['tmp_name']);
+    	    elseif ($fileType == 'png')
+                $image = imagecreatefrompng($imageFile['tmp_name']);
+            imagewebp($image, $targetFilePath, 100);
+        }
         $review = new Review(null, $author, $content, $targetFilePath);
         $this->sendReview($review);
     }
@@ -35,14 +41,20 @@ class ReviewsController extends ReviewsManager{
     public function updateReview($id, $author, $content, $imageFile){
         $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
         $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
-        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
-        if ($fileType == 'jpeg' || $fileType == 'jpg')
-            $image = imagecreatefromjpeg($imageFile['tmp_name']);
-	    elseif ($fileType == 'gif')
-            $image = imagecreatefromgif($imageFile['tmp_name']);
-	    elseif ($fileType == 'png')
-            $image = imagecreatefrompng($imageFile['tmp_name']);
-        imagewebp($image, $targetFilePath, 100);
+        if($fileType == 'svg'){
+            $targetFilePath = $this->targetDirectory . $fileName . ".svg";
+            move_uploaded_file($imageFile['tmp_name'], $targetFilePath);
+        }
+        else {
+            $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+            if ($fileType == 'jpeg' || $fileType == 'jpg')
+                $image = imagecreatefromjpeg($imageFile['tmp_name']);
+    	    elseif ($fileType == 'gif')
+                $image = imagecreatefromgif($imageFile['tmp_name']);
+    	    elseif ($fileType == 'png')
+                $image = imagecreatefrompng($imageFile['tmp_name']);
+            imagewebp($image, $targetFilePath, 100);
+        }
         $review = new Review($id, $author, $content, $targetFilePath);
         $this->sendReviewUpdate($review);
     }

@@ -4,7 +4,7 @@ $page = "skills";
  ?>
 
 <header>
-        <img src="public/images/frontend/skills/skills-light.png">
+        <img src="public/images/frontend/skills/skills-light.png" alt="">
         <div>
             <h1>Nos <span>compétences</span></h1>
             <p>De la rédaction au produit final, en passant par le tournage, le montage et la postproduction,<br />
@@ -12,37 +12,37 @@ $page = "skills";
             <nav>
                 <a href="#design">
                     <div>
-                        <img src="public/images/frontend/skills/icons/design.svg">
+                        <img src="public/images/frontend/skills/icons/design.svg" alt="aller à la section Conception et rédaction">
                     </div>
                     <p>Conception<br /> &amp; rédaction</p>
                 </a>
                 <a href="#preprod">
                     <div>
-                        <img src="public/images/frontend/skills/icons/preprod.svg">
+                        <img src="public/images/frontend/skills/icons/preprod.svg" alt="aller à la section Pré-production">
                     </div>
                     <p>Pré-production</p>
                 </a>
                 <a href="#shooting">
                     <div>
-                        <img src="public/images/frontend/skills/icons/shooting.svg">
+                        <img src="public/images/frontend/skills/icons/shooting.svg" alt="aller à la section Tournage">
                     </div>
                     <p>Tournage</p>
                 </a>
                 <a href="#montage">
                     <div>
-                        <img src="public/images/frontend/skills/icons/montage.svg">
+                        <img src="public/images/frontend/skills/icons/montage.svg" alt="aller à la section Montage">
                     </div>
                     <p>Montage</p>
                 </a>
                 <a href="#motion">
                     <div>
-                        <img src="public/images/frontend/skills/icons/motion.svg">
+                        <img src="public/images/frontend/skills/icons/motion.svg" alt="aller à la section Motion-design">
                     </div>
                     <p>Motion-design</p>
                 </a>
                 <a href="#drone">
                     <div>
-                        <img src="public/images/frontend/skills/icons/drone.svg">
+                        <img src="public/images/frontend/skills/icons/drone.svg" alt="aller à la section Pilote de drone professionnel">
                     </div>
                     <p>Pilotage de drone professionel</p>
                 </a>
@@ -52,10 +52,10 @@ $page = "skills";
     </header>
     <section>
         <div id="design">
-            <img src="public/images/frontend/skills/design.png">
+            <img src="public/images/frontend/skills/design.png" alt="">
             <div>
                 <div>
-                    <img src="public/images/frontend/skills/icons/design.svg">
+                    <img src="public/images/frontend/skills/icons/design.svg" alt="section Conception et rédaction">
                 </div>
                 <h2>Conception &amp; rédaction</h2>
                 <p>Le point de commencement où tout démarre. Une demande particulière ou l'envie de laisser libre court à l'imagination du scénariste ?<br />
@@ -64,10 +64,10 @@ $page = "skills";
             </div>
         </div>
         <div id="preprod">
-            <img src="public/images/frontend/skills/preprod-light.png">
+            <img src="public/images/frontend/skills/preprod-light.png" alt="">
             <div>
                 <div>
-                    <img src="public/images/frontend/skills/icons/preprod.svg">
+                    <img src="public/images/frontend/skills/icons/preprod.svg" alt="section Pré-production">
                 </div>
                 <h2>Pré-production</h2>
                 <p>Cette étape signiﬁe que la préparation du tournage est entre nos mains !<br />
@@ -76,10 +76,10 @@ $page = "skills";
             </div>
         </div>
         <div id="shooting">
-            <img src="public/images/frontend/skills/shooting-light.png">
+            <img src="public/images/frontend/skills/shooting-light.png" alt="">
             <div>
                 <div>
-                    <img src="public/images/frontend/skills/icons/shooting.svg">
+                    <img src="public/images/frontend/skills/icons/shooting.svg" alt="section Tournage">
                 </div>
                 <h2>Tournage</h2>
                 <p>Un matériel de qualité à toutes épreuves et une créativité, une imagination débordante sont les deux principaux facteurs qui forment un tournage réussi.<br />
@@ -88,10 +88,10 @@ $page = "skills";
             </div>
         </div>
         <div id="montage">
-            <img src="public/images/frontend/skills/montage-light.png">
+            <img src="public/images/frontend/skills/montage-light.png" alt="">
             <div>
                 <div>
-                    <img src="public/images/frontend/skills/icons/montage.svg">
+                    <img src="public/images/frontend/skills/icons/montage.svg" alt="section Montage">
                 </div>
                 <h2>Montage</h2>
                 <p>Dérushage, travail de la lumière, du raccord, des rythmes, mixage sonore, titrage etc.<br />
@@ -100,10 +100,10 @@ $page = "skills";
             </div>
         </div>
         <div id="motion">
-            <img src="public/images/frontend/skills/motion-light.png">
+            <img src="public/images/frontend/skills/motion-light.png" alt="">
             <div>
                 <div>
-                    <img src="public/images/frontend/skills/icons/motion.svg">
+                    <img src="public/images/frontend/skills/icons/motion.svg" alt="section Motion-design">
                 </div>
                 <h2>Motion design</h2>
                 <p>Forme d'art visuel qui a pour but de créer des oeuvres animées, le motion design peut ainsi rajouter à vos réalisations, une note graphique et artistique impliquant le mouvement et expliquant un concept de manière plus explicite.<br />
@@ -112,10 +112,10 @@ $page = "skills";
             </div>
         </div>
         <div id="drone">
-            <img src="public/images/frontend/skills/drone-light.jpg">
+            <img src="public/images/frontend/skills/drone-light.jpg" alt="">
             <div>
                 <div>
-                    <img src="public/images/frontend/skills/icons/drone.svg">
+                    <img src="public/images/frontend/skills/icons/drone.svg" alt="section Pilote de drone professionnel">
                 </div>
                 <h2>Pilotage de drone professionnel</h2>
                 <p>Pratique novatrice et particulièrement esthétique, l'utilisation d'un drone, est aujourd'hui, un des meilleurs outils en matière de réalisation audiovisuelle.<br />

@@ -4,7 +4,7 @@ $page = "articles";
  ?>
 
 <header>
-    <img src="public/images/frontend/articles/articles-light.png">
+    <img src="public/images/frontend/articles/articles-light.png" alt="">
     <div>
         <h1>On parle de nous !</h1>
         <p>Notre actualité dans les médias</p>

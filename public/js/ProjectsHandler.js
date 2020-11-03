@@ -5,21 +5,16 @@ class ProjectsHandler {
         this.displayLocation = displayLocation;
         this.side = side; //frontend or backend ?
         this.category = "all";
-        this.projectsPerPage = 10;
+        this.projectsPerPage = 8;
         this.currentPage = 1;
     }
 
     //CREATE
 
-    displayNewProjectButton(){
-        $(projectsHandler.workLocation).append($("<button>").html("Ajouter une nouvelle réalisation").on("click", function(e){
-            $(projectsHandler.workLocation).html("");
-            projectsHandler.displayProjectForm();
-        }));
-    }
-
     displayProjectForm(projectData){
         let projectForm = $("<form>", {action:"#"});
+        let formTitle = $("<h3>");
+        projectForm.append(formTitle);
         projectForm.append($("<label>", {for:"title", html:"Titre de la réalisation : "}));
         projectForm.append($("<input>", {type:"text", name:"title", required:true}));
         projectForm.append($("<label>", {for:"description", html:"Description : "}));
@@ -40,12 +35,6 @@ class ProjectsHandler {
         selectCategory.append($("<option>", {value:"motionDesign", html:"motion design"}));
         projectForm.append(selectCategory);
         projectForm.append($("<input>", {type:"submit", name:"submitButton", value:"Ajouter cette réalisation"}));
-        projectForm.append($("<button>").html("Annuler").on("click", function(){
-            $(projectsHandler.workLocation).html("");
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
-        }));
         $(projectsHandler.workLocation).html("");
         if(projectData != undefined){
             projectForm[0].title.value = projectData.title;
@@ -55,12 +44,13 @@ class ProjectsHandler {
             projectForm[0].url.value = projectData.url;
             projectForm[0].category.value = projectData.category;
             projectForm[0].submitButton.value = "Mettre à jour cette réalisation";
-            $(reviewsHandler.workLocation).append($("<h3>").html("Modification de la réalisation sélectionnée"));
+            formTitle.html("Modification de la réalisation sélectionnée");
         }
         else {
-            $(projectsHandler.workLocation).append($("<h3>").html("Création d'une réalisation"));
+            formTitle.html("Création d'une réalisation");
         }
         projectForm.on("submit", function(e){
+            $("form input[type='file']").after($("<p>").html("Chargement..."));
             if(projectData == undefined)
                 projectsHandler.addProject(e.target.title.value, e.target.description.value, e.target.imageFile.files[0], e.target.url.value, e.target.category.value);
             else if(projectData != undefined)
@@ -80,10 +70,7 @@ class ProjectsHandler {
         query.append("category", category);
         ajaxPost("index.php", query, function(response){
             $(projectsHandler.workLocation).html("").append($("<div>").html("La réalisation " + title + " a été ajoutée."));
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
-            projectsHandler.getProjects();
+            projectsHandler.getProjects(projectsHandler.currentPage);
         });
     }
 
@@ -116,8 +103,22 @@ class ProjectsHandler {
     displayProjects(projects, numberOfProjects){
         if(projects[0] != undefined){
             projects.forEach(function(projectData){
-                let projectLink = $("<a>").attr("href", projectData.url);
-                projectLink.append($("<img>").attr("src", projectData.imageFile));
+                let projectLink = $("<button>").attr("aria-label", "Voir la vidéo intitulée" + projectData.title).on("click", function(){
+                    $("#video-modal").show();
+                    $("#video-modal").append($("<iframe>").attr({
+                        src: "https://www.youtube.com/embed/" + projectData.url.substring(32),
+                        autoplay: "1",
+                        allowfullscreen: "1"
+                    }));
+                    $("#video-modal").on("click", function(e){
+                        e.target.innerHTML = "";
+                        e.target.style.display = "none";
+                    });
+                });
+                projectLink.append($("<img>").attr({
+                    src: projectData.imageFile,
+                    alt: "Image de la vidéo intitulée " + projectData.title
+                }));
                 let hiddenDiv = $("<div>");
                 hiddenDiv.append($("<h3>").html(projectData.title));
                 hiddenDiv.append($("<p>").html(projectData.description));
@@ -130,6 +131,7 @@ class ProjectsHandler {
                     let adminDiv = $("<div>");
                     let buttonsDiv = $("<div>");
                     buttonsDiv.append($("<button>").html("Modifier").on("click", function(){
+                        $("#form-modal").show();
                         projectsHandler.displayProjectForm(projectData);
                     }));
                     buttonsDiv.append($("<button>").html("Supprimer").on("click", function(){
@@ -142,7 +144,7 @@ class ProjectsHandler {
             });
             if(numberOfProjects > projectsHandler.projectsPerPage){
                 let numberOfPages = Math.ceil(numberOfProjects / projectsHandler.projectsPerPage);
-                let projectsNav = $("<nav>", {id:"projectsNav"});
+                let projectsNav = $("<div>", {id:"projectsNav"});
                 projectsNav.append($("<button>").html("<").on("click", function(){
                     if(projectsHandler.currentPage > 1){
                         projectsHandler.currentPage --;
@@ -171,6 +173,11 @@ class ProjectsHandler {
                 $("#projectsNav > span:nth-child(" + (projectsHandler.currentPage + 1) + ")").css("font-weight", "900");
             }
             else $("#projectsNav").remove();
+            if(projectsHandler.side == "backend"){
+                $("html").animate({
+                    scrollTop: $("#projectsButton").offset().top
+                }, 1000);
+            }
         }
         else $(projectsHandler.displayLocation).append($("<p>").html("Aucun projet pour le moment."));
     }
@@ -188,10 +195,7 @@ class ProjectsHandler {
         query.append("category", category);
         ajaxPost("index.php", query, function(response){
             $(projectsHandler.workLocation).html("").append($("<div>").html("La réalisation " + title + " a été modifiée."));
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
-            projectsHandler.getProjects();
+            projectsHandler.getProjects(projectsHandler.currentPage);
         });
     }
 
@@ -203,7 +207,7 @@ class ProjectsHandler {
             query.append("action", "deleteProject");
             query.append("id", id);
             ajaxPost("index.php", query, function(response){
-                projectsHandler.getProjects();
+                projectsHandler.getProjects(projectsHandler.currentPage);
             });
         }
     }

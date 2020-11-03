@@ -69,13 +69,13 @@ $description = "C'est à la suite de longues études de photographie, de cinéma
         <a href="index.php?action=projectsView">Découvrir</a>
     </div>
 </section>
-<section id="reviewsDisplay">
-    <div>
-        <button aria-label="Avis précédent"><i class="fas fa-chevron-left"></i></button>
+<div id="reviewsDisplay">
+    <div id="sliderDiv">
+        <button id="previousSlideButton" aria-label="Avis précédent"><i class="fas fa-chevron-left"></i></button>
         <a href="index.php?action=articlesView"></a>
-        <button aria-label="Avis suivant"><i class="fas fa-chevron-right"></i></button>
+        <button id="nextSlideButton" aria-label="Avis suivant"><i class="fas fa-chevron-right"></i></button>
     </div>
-</section>
+</div>
 <section id="ourSkills">
     <div>
         <img src="public/images/frontend/index/ourSkills-light.webp" alt="">

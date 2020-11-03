@@ -91,4 +91,5 @@ section > div > form > input:hover {
 
 section > iframe {
     padding: 6em 6em 6em 3em;
+    border: none;
 }

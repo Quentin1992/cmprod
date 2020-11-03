@@ -6,14 +6,20 @@ class ArticlesController extends ArticlesManager{
     public function addArticle($author, $title, $date, $imageFile, $url){
         $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
         $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
-        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
-        if ($fileType == 'jpeg' || $fileType == 'jpg')
-            $image = imagecreatefromjpeg($imageFile['tmp_name']);
-	    elseif ($fileType == 'gif')
-            $image = imagecreatefromgif($imageFile['tmp_name']);
-	    elseif ($fileType == 'png')
-            $image = imagecreatefrompng($imageFile['tmp_name']);
-        imagewebp($image, $targetFilePath, 100);
+        if($fileType == 'svg'){
+            $targetFilePath = $this->targetDirectory . $fileName . ".svg";
+            move_uploaded_file($imageFile['tmp_name'], $targetFilePath);
+        }
+        else {
+            $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+            if ($fileType == 'jpeg' || $fileType == 'jpg')
+                $image = imagecreatefromjpeg($imageFile['tmp_name']);
+    	    elseif ($fileType == 'gif')
+                $image = imagecreatefromgif($imageFile['tmp_name']);
+    	    elseif ($fileType == 'png')
+                $image = imagecreatefrompng($imageFile['tmp_name']);
+            imagewebp($image, $targetFilePath, 100);
+        }
         $article = new Article(null, $author, $title, $date, $targetFilePath, $url);
         $this->sendArticle($article);
     }
@@ -37,14 +43,20 @@ class ArticlesController extends ArticlesManager{
     public function updateArticle($id, $author, $title, $date, $imageFile, $url){
         $fileName = pathinfo($imageFile["name"],PATHINFO_FILENAME);
         $fileType = pathinfo($imageFile["name"],PATHINFO_EXTENSION);
-        $targetFilePath = $this->targetDirectory . $fileName . ".webp";
-        if ($fileType == 'jpeg' || $fileType == 'jpg')
-            $image = imagecreatefromjpeg($imageFile['tmp_name']);
-	    elseif ($fileType == 'gif')
-            $image = imagecreatefromgif($imageFile['tmp_name']);
-	    elseif ($fileType == 'png')
-            $image = imagecreatefrompng($imageFile['tmp_name']);
-        imagewebp($image, $targetFilePath, 100);
+        if($fileType == 'svg'){
+            $targetFilePath = $this->targetDirectory . $fileName . ".svg";
+            move_uploaded_file($imageFile['tmp_name'], $targetFilePath);
+        }
+        else {
+            $targetFilePath = $this->targetDirectory . $fileName . ".webp";
+            if ($fileType == 'jpeg' || $fileType == 'jpg')
+                $image = imagecreatefromjpeg($imageFile['tmp_name']);
+    	    elseif ($fileType == 'gif')
+                $image = imagecreatefromgif($imageFile['tmp_name']);
+    	    elseif ($fileType == 'png')
+                $image = imagecreatefrompng($imageFile['tmp_name']);
+            imagewebp($image, $targetFilePath, 100);
+        }
         $article = new Article($id, $author, $title, $date, $targetFilePath, $url);
         $this->sendArticleUpdate($article);
     }

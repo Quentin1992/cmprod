@@ -128,6 +128,7 @@ footer > div:first-child > a:hover {
 }
 footer > div:first-child iframe{
     margin: 15px 0px;
+    border: none;
 }
 
 footer > div:nth-child(2){

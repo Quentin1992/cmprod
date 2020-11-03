@@ -9,15 +9,10 @@ class ArticlesHandler {
 
     //CREATE
 
-    displayNewArticleButton(){
-        $(articlesHandler.workLocation).append($("<button>").html("Ajouter un nouvel article").on("click", function(e){
-            $(articlesHandler.workLocation).html("");
-            articlesHandler.displayArticleForm();
-        }));
-    }
-
     displayArticleForm(articleData){
         let articleForm = $("<form>", {action:"#"});
+        let formTitle = $("<h3>");
+        articleForm.append(formTitle);
         articleForm.append($("<label>", {for:"author", html:"Auteur de l'article : "}));
         articleForm.append($("<input>", {type:"text", name:"author", required:true}));
         articleForm.append($("<label>", {for:"title", html:"Titre de l'article : "}));
@@ -47,19 +42,11 @@ class ArticlesHandler {
         articleForm.append($("<label>", {for:"url", html:"Lien vers l'article : "}));
         articleForm.append($("<input>", {type: "text", name:"url"}));
         articleForm.append($("<input>", {type:"submit", name:"submitButton", value:"Ajouter cet article"}));
-        articleForm.append($("<button>").html("Annuler").on("click", function(){
-            $(articlesHandler.workLocation).html("");
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
-        }));
         $(projectsHandler.workLocation).html("");
         if(articleData != undefined){
-            console.log(articleData.date);
             let dateNumbers = converter.dateToInt(articleData.date);
             articleForm[0].author.value = articleData.author;
             articleForm[0].title.value = articleData.title;
-            console.log(dateNumbers);
             articleForm[0].day.value = dateNumbers.day;
             articleForm[0].month.value = dateNumbers.month;
             articleForm[0].year.value = dateNumbers.year;
@@ -68,11 +55,12 @@ class ArticlesHandler {
             //$("<img>").attr("src", articleData.imageFile).insertAfter(articleForm[0].imageFile);
             articleForm[0].url.value = articleData.url;
             articleForm[0].submitButton.value = "Mettre à jour cet article";
-            $(articlesHandler.workLocation).append($("<h3>").html("Modification de l'article sélectionné"));
+            formTitle.html("Modification de l'article sélectionné");
         } else{
-            $(articlesHandler.workLocation).append($("<h3>").html("Création d'un article"));
+            formTitle.html("Création d'un article");
         }
         articleForm.on("submit", function(e){
+            $("form input[type='file']").after($("<p>").html("Chargement..."));
             let date = converter.intToDate(e.target.day.value, e.target.month.value, e.target.year.value);
             if(articleData == undefined)
                 articlesHandler.addArticle(e.target.author.value, e.target.title.value, date, e.target.imageFile.files[0], e.target.url.value);
@@ -93,9 +81,6 @@ class ArticlesHandler {
         query.append("url", url);
         ajaxPost("index.php", query, function(response){
             $(articlesHandler.workLocation).html("").append($("<div>").html("L'article " + title + " a été ajouté."));
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
             articlesHandler.getArticles();
         });
     }
@@ -132,6 +117,7 @@ class ArticlesHandler {
                     adminDiv.append(visibleDiv);
                     let buttonsDiv = $("<div>");
                     buttonsDiv.append($("<button>").html("Modifier").on("click", function(){
+                        $("#form-modal").show();
                         articlesHandler.displayArticleForm(articleData);
                     }));
                     buttonsDiv.append($("<button>").html("Supprimer").on("click", function(){
@@ -141,6 +127,9 @@ class ArticlesHandler {
                     $(articlesHandler.displayLocation).append(adminDiv);
                 }
             });
+            $("html").animate({
+                scrollTop: $("#articlesButton").offset().top
+            }, 1000);
         }
         else $(articlesHandler.displayLocation).append($("<p>").html("Aucun article pour le moment."));
     }
@@ -158,9 +147,6 @@ class ArticlesHandler {
         query.append("url", url);
         ajaxPost("index.php", query, function(response){
             $(articlesHandler.workLocation).html("").append($("<div>").html("L'article' " + title + " a été modifié."));
-            reviewsHandler.displayNewReviewButton();
-            projectsHandler.displayNewProjectButton();
-            articlesHandler.displayNewArticleButton();
             articlesHandler.getArticles();
         });
     }

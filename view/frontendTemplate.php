@@ -7,6 +7,9 @@
     <title><?= $title ?></title>
     <meta name="description" content="<?php echo $description ?>">
     <link rel="icon" href="public/images/eye.jpg" />
+    <link rel="preconnect" href="https://scontent-cdt1-1.xx.fbcdn.net">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://static.xx.fbcdn.net">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -41,11 +44,12 @@
     <link rel="stylesheet" href="public/css/projects/projects.css" />
     <link rel="stylesheet" media="screen and (max-width: 1440px)" href="public/css/projects/projects-medium.css">
     <link rel="stylesheet" media="screen and (max-width: 1024px)" href="public/css/projects/projects-small.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="public/css/projects/projects-tablet.css">
     <link rel="stylesheet" media="screen and (max-width: 426px)" href="public/css/projects/projects-smartphone.css">
     <?php } ?>
 
     <!-- javascript scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <?php if($page == ("index" || "projects" || "skills" || "articles" || "contact")){ ?>
     <script src="public/js/frontend/eyeblink.js"></script>
     <?php }
@@ -105,7 +109,7 @@
         <div>
             <h3>Vous avez un <span>projet ?</span></h3>
             <a href="index.php?action=contactView">Contactez-nous</a>
-            <iframe title="Messenger" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fchaud.mirette%2F&tabs=messages&width=340&height=299&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=131622276870917" width="340" height="299" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <iframe title="Messenger" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fchaud.mirette%2F&tabs=messages&width=340&height=299&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=131622276870917" width="340" height="299"></iframe>
         </div>
         <div>
             <div>

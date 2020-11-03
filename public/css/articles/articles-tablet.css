@@ -4,9 +4,13 @@
 
 #articlesDisplay > div > div:first-child {
     overflow: visible;
-    margin: 4em auto;
+    margin: 4em auto 8em auto;
 }
 
 #articlesDisplay > div > div:first-child > a:hover {
     transform: unset;
+}
+
+#articlesDisplay > div > div:last-child {
+    text-align: center;
 }

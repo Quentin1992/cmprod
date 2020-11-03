@@ -1,8 +1,8 @@
-#reviewsDisplay > div:first-child {
+#sliderDiv {
     display: flex;
     height: 350px;
 }
-#reviewsDisplay > div:first-child > button {
+#sliderDiv > button {
     flex:1;
     background-color: #fff;
     font-size: 3em;
@@ -10,11 +10,11 @@
     border: none;
     outline: none;
 }
-#reviewsDisplay > div:first-child > button:hover {
+#sliderDiv > button:hover {
     color: #000000;
     background-color: #f9f9f9;
 }
-#reviewsDisplay > div:first-child > a {
+#sliderDiv > a {
     flex: 2;
     display: flex;
     justify-content: space-around;
@@ -23,15 +23,15 @@
     color: #707070;
     background-color: #ffffff;
 }
-#reviewsDisplay > div:first-child > a:hover {
+#sliderDiv > a:hover {
     color: #000000;
     background-color: #f9f9f9;
 }
-#reviewsDisplay > div:first-child > a > div:first-child {
+#sliderDiv > a > div:first-child {
     height: 200px;
     flex: 1;
 }
-#reviewsDisplay > div:first-child > a > div:first-child > div {
+#sliderDiv > a > div:first-child > div {
     display: flex;
     width: 200px;
     height: 200px;
@@ -41,41 +41,50 @@
     justify-content: center;
 }
 /* svg exception for chrome : had to remove it to prevent image crop */
-#reviewsDisplay > div:first-child > a > div:first-child > div > img:not([src$='.svg']) {
+#sliderDiv > a > div:first-child > div > img:not([src$='.svg']) {
     object-fit: cover;
 }
-#reviewsDisplay > div:first-child > a > div:first-child > div > img[src$='.svg'] {
+#sliderDiv > a > div:first-child > div > img[src$='.svg'] {
     padding: 2em;
     width: calc(100% / 1.4142135623730950488016887242097);
 }
-#reviewsDisplay > div:first-child > a > div:last-child {
+#sliderDiv > a > div:last-child {
     flex: 2;
     padding: 1em;
 }
-#reviewsDisplay > div:first-child > a > div:last-child > p {
+#sliderDiv > a > div:last-child > p {
     font-style: italic;
     line-height: 2em;
 }
-#reviewsDisplay > div:first-child > a > div:last-child > p::before {
+#sliderDiv > a > div:last-child > p::before {
     content: "\0000AB" ;
     margin-right: 0.2em;
 }
-#reviewsDisplay > div:first-child > a > div:last-child > p::after {
+#sliderDiv > a > div:last-child > p::after {
     content: "\0000BB" ;
     margin-left: 0.2em;
 }
-#reviewsDisplay > div:first-child > a > div:last-child > div > i {
+#sliderDiv > a > div:last-child > div > i {
     color: #FDA100;
     margin-right: 0.5em;
 }
-#reviewsDisplay > div:first-child > a > div:last-child > div > span {
+#sliderDiv > a > div:last-child > div > span {
     font-weight: 600;
 }
 
-#reviewsDisplay > div:nth-child(2) {
+#reviewsTableLocation table {
+    width: 100%;
+    border-collapse: collapse;
     text-align: center;
 }
-#reviewsDisplay > div:nth-child(2) > button {
+#reviewsTableLocation table img {
+    height: 100px;
+}
+#reviewsTableLocation table tr:nth-child(odd) {
+    background-color: white;
+}
+
+#reviewsTableLocation table button {
     box-shadow: 8px 8px 8px #000;
     color: #ffffff;
     background-color: #4d4d4d;

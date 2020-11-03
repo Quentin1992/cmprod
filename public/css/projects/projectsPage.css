@@ -41,11 +41,11 @@ header > div > p {
     font-weight: 300;
 }
 
-body > nav {
+#categorySelector {
     display: flex;
     background-color: #ffd406;
 }
-body > nav > button {
+#categorySelector > button {
     flex: 1;
     color: #ffffff;
     background-color: #4d4d4d;
