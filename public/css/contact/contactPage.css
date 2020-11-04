@@ -93,3 +93,7 @@ section > iframe {
     padding: 6em 6em 6em 3em;
     border: none;
 }
+
+footer > div:first-child {
+    display: none;
+}

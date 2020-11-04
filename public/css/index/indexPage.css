@@ -6,6 +6,9 @@ header{
     z-index: 1;
     background-color: #000000;
 }
+header h1 {
+    display: none;
+}
 header video{
     position: absolute;
     width: 100%;

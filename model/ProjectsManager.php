@@ -18,14 +18,30 @@ class ProjectsManager extends Database{
         $query->execute();
     }
 
-    public function goCountProjects($where){
+    public function goCountProjects($category){
+        if($category == "video")
+            $where = " WHERE project_category = 'video'";
+        elseif($category == "motionDesign")
+            $where = " WHERE project_category = 'motionDesign'";
+        else $where = "";
         $sql = 'SELECT COUNT(*) AS number_of_projects FROM projects' . $where;
         $query = $this->db->query($sql);
         $data = $query->fetch(PDO::FETCH_ASSOC);
         return $data['number_of_projects'];
     }
 
-    public function goGetProjects($where, $limit){
+    public function goGetProjects($category, $pageNumber, $projectsPerPage){
+        if($category == "video")
+            $where = " WHERE project_category = 'video'";
+        elseif($category == "motionDesign")
+            $where = " WHERE project_category = 'motionDesign'";
+        else $where = "";
+        if($pageNumber != undefined){
+            if($pageNumber > 1)
+                $offset = " OFFSET " . $projectsPerPage * ($pageNumber - 1);
+            else $offset = "";
+            $limit = " LIMIT " . $projectsPerPage . $offset;
+        } else $limit = " LIMIT " . $projectsPerPage;
         $projects = [];
         $sql = 'SELECT * FROM projects' . $where . $limit;
         $query = $this->db->query($sql);

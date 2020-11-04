@@ -4,6 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if($page == "backend"){ ?>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <?php } ?>
     <title><?= $title ?></title>
     <meta name="description" content="<?php echo $description ?>">
     <link rel="icon" href="public/images/eye.jpg" />
@@ -93,10 +97,10 @@
                 <a href="#"><i class="fas fa-bars"></i></a>
             </nav>
             <div>
-                <a href="https://www.instagram.com/chaudmirette_prod/"><i class="fab fa-instagram"></i></a>
-                <a href="https://fr.linkedin.com/in/roxane-balcerek-718728134"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.youtube.com/channel/UCTnIumn2sT4wIQL3qFRteRA/videos"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.facebook.com/chaud.mirette/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/chaudmirette_prod/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://fr.linkedin.com/in/roxane-balcerek-718728134" aria-label="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/channel/UCTnIumn2sT4wIQL3qFRteRA/videos" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/chaud.mirette/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </div>
@@ -121,10 +125,10 @@
                 <a href="index.php?action=contactView">Contact</a>
             </div>
             <div>
-                <a href="https://www.instagram.com/chaudmirette_prod/"><i class="fab fa-instagram"></i></a>
-                <a href="https://fr.linkedin.com/in/roxane-balcerek-718728134"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.youtube.com/channel/UCTnIumn2sT4wIQL3qFRteRA/videos"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.facebook.com/chaud.mirette/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/chaudmirette_prod/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://fr.linkedin.com/in/roxane-balcerek-718728134" aria-label="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/channel/UCTnIumn2sT4wIQL3qFRteRA/videos" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/chaud.mirette/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
         <div>

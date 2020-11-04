@@ -17,6 +17,6 @@ class View
         ob_start();
         include_once(VIEW . $view . '.php');
         $content = ob_get_clean();
-        include_once(VIEW . 'frontendTemplate.php');
+        include_once(VIEW . 'template.php');
     }
 }

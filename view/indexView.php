@@ -5,6 +5,7 @@ $description = "C'est à la suite de longues études de photographie, de cinéma
  ?>
 
 <header id="container">
+    <h1>Chaud Mirette Productions</h1>
     <video id="video" poster="public/images/frontend/showreel-light.webp">
         <source src="public/videos/showreel_720.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la balise "video".
@@ -72,7 +73,7 @@ $description = "C'est à la suite de longues études de photographie, de cinéma
 <div id="reviewsDisplay">
     <div id="sliderDiv">
         <button id="previousSlideButton" aria-label="Avis précédent"><i class="fas fa-chevron-left"></i></button>
-        <a href="index.php?action=articlesView"></a>
+        <a href="index.php?action=articlesView" aria-label="On parle de nous"></a>
         <button id="nextSlideButton" aria-label="Avis suivant"><i class="fas fa-chevron-right"></i></button>
     </div>
 </div>
