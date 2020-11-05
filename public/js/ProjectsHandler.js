@@ -69,7 +69,10 @@ class ProjectsHandler {
         query.append("url", url);
         query.append("category", category);
         ajaxPost("index.php", query, function(response){
-            $(projectsHandler.workLocation).html("").append($("<div>").html("La réalisation " + title + " a été ajoutée."));
+            $(projectsHandler.workLocation).html("").hide();
+            $("#reviewsDisplay").hide();
+            $("#projectsDisplay").show();
+            $("#articlesDisplay").hide();
             projectsHandler.getProjects(projectsHandler.currentPage);
         });
     }
@@ -194,7 +197,10 @@ class ProjectsHandler {
         query.append("url", url);
         query.append("category", category);
         ajaxPost("index.php", query, function(response){
-            $(projectsHandler.workLocation).html("").append($("<div>").html("La réalisation " + title + " a été modifiée."));
+            $(projectsHandler.workLocation).html("").hide();
+            $("#reviewsDisplay").hide();
+            $("#projectsDisplay").show();
+            $("#articlesDisplay").hide();
             projectsHandler.getProjects(projectsHandler.currentPage);
         });
     }

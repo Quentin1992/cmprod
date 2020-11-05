@@ -59,7 +59,10 @@ class ReviewsHandler {
         query.append("content", content);
         query.append("imageFile", imageFile);
         ajaxPost("index.php", query, function(response){
-            $(reviewsHandler.workLocation).html("").append($("<div>").html("L'avis de " + author + " a été ajouté."));
+            $(reviewsHandler.workLocation).html("").hide();
+            $("#reviewsDisplay").show();
+            $("#projectsDisplay").hide();
+            $("#articlesDisplay").hide();
             reviewsHandler.getReviews();
         });
     }
@@ -161,7 +164,10 @@ class ReviewsHandler {
         query.append("content", content);
         query.append("imageFile", imageFile);
         ajaxPost("index.php", query, function(response){
-            $(reviewsHandler.workLocation).html("").append($("<div>").html("L'avis de " + author + " a été modifié."));
+            $(reviewsHandler.workLocation).html("").hide();
+            $("#reviewsDisplay").show();
+            $("#projectsDisplay").hide();
+            $("#articlesDisplay").hide();
             reviewsHandler.getReviews();
         });
     }

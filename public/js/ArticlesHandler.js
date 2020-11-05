@@ -80,7 +80,10 @@ class ArticlesHandler {
         query.append("imageFile", imageFile);
         query.append("url", url);
         ajaxPost("index.php", query, function(response){
-            $(articlesHandler.workLocation).html("").append($("<div>").html("L'article " + title + " a été ajouté."));
+            $(articlesHandler.workLocation).html("").hide();
+            $("#reviewsDisplay").hide();
+            $("#projectsDisplay").hide();
+            $("#articlesDisplay").show();
             articlesHandler.getArticles();
         });
     }
@@ -146,7 +149,10 @@ class ArticlesHandler {
         query.append("imageFile", imageFile);
         query.append("url", url);
         ajaxPost("index.php", query, function(response){
-            $(articlesHandler.workLocation).html("").append($("<div>").html("L'article' " + title + " a été modifié."));
+            $(articlesHandler.workLocation).html("").hide();
+            $("#reviewsDisplay").hide();
+            $("#projectsDisplay").hide();
+            $("#articlesDisplay").show();
             articlesHandler.getArticles();
         });
     }
